@@ -26,8 +26,8 @@ namespace HearthstoneProject
         {
             InitializeComponent();
             Lporfa.Visibility = Visibility.Hidden;
-            j1 = new Heroe(null, null, null, null, null, null, null, null, null);
-            j2 = new Heroe(null, null, null, null, null, null, null, null, j1);
+            j1 = new Heroe(null, null, null, null, null, null, null, null, null,null);
+            j2 = new Heroe(null, null, null, null, null, null, null, null, j1,null);
             j1.enemigo = j2;
         }
 
@@ -89,7 +89,7 @@ namespace HearthstoneProject
                     jug.descripcion = "Invoca un Recluta de la Mano de Plata 1/1";
                     temphabilidad.Add("invoca");
                     List<Objeto> tempobjetivo = new List<Objeto>();
-                    Esbirro tempesbirro1 = new Esbirro("Recluta de la Mano de Plata", 0, jug, null, 1, 1, false, false, false, false, false, null, null, null, null, null, null);
+                    Esbirro tempesbirro1 = new Esbirro("Recluta de la Mano de Plata", 0, jug, null, 1, 1, false, false, false, false, false, null, null, null, null, null, null,null);
                     tempobjetivo.Add(jug);
                     tempobjetivo.Add(tempesbirro1);
                     tempobjetivos.Add(tempobjetivo);
@@ -113,61 +113,61 @@ namespace HearthstoneProject
                 //3 wisp:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Wisp", 0, jug, null, 1, 1, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Wisp", 0, jug, null, 1, 1, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 murloc raider:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Murloc raider", 1, jug, "murloc", 1, 2, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Murloc raider", 1, jug, "murloc", 1, 2, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Bloodfen Raptor:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Bloodfen Raptor", 2, jug, "bestia", 2, 3, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Bloodfen Raptor", 2, jug, "bestia", 2, 3, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 River Crocolist:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("River Crocolist", 2, jug, "bestia", 3, 2, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("River Crocolist", 2, jug, "bestia", 3, 2, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Magma Rager:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Magma Rager", 3, jug, "elemental", 1, 5, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Magma Rager", 3, jug, "elemental", 1, 5, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 ChillWind Yeti:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Chillwind Yeti", 4, jug, null, 5, 4, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Chillwind Yeti", 4, jug, null, 5, 4, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Oasis Snapjaw:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Oasis Snapjaw", 4, jug, "bestia", 7, 2, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Oasis Snapjaw", 4, jug, "bestia", 7, 2, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Boulderfist Ogre:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Boulderfist Ogre", 6, jug, null, 7, 6, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Boulderfist Ogre", 6, jug, null, 7, 6, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 War Golem:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("War Golem", 7, jug, null, 7, 7, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("War Golem", 7, jug, null, 7, 7, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Core Hound:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Core Hound", 7, jug, "bestia", 5, 9, false, false, false, false, false, null, null, null, null, null, null);
+                    tempesbirro = new Esbirro("Core Hound", 7, jug, "bestia", 5, 9, false, false, false, false, false, null, null, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 jug.mazo = DesordenarLista(jug.mazo);

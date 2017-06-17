@@ -24,7 +24,7 @@ namespace HearthstoneProject
         public List<Esbirro> campo;
         public List<Carta> cementerio;
 
-        public Heroe(string nombre, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo)
+        public Heroe(string nombre, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo,string imagen)
         {
             this.descripcion = descripcion;
             this.enemigo = enemigo;
@@ -49,6 +49,7 @@ namespace HearthstoneProject
             campo = cam;
             this.nombre = nombre;
             this.mazo = mazo;
+            this.imagen = imagen;
         }
         public void Iniciarturno()
         {

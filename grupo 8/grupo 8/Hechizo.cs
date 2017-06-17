@@ -9,7 +9,7 @@ namespace HearthstoneProject
     class Hechizo : Carta
     {
         //Constructor:
-        public Hechizo(string nombre, int costo, Heroe dueño, string descripcion, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando)
+        public Hechizo(string nombre, int costo, Heroe dueño, string descripcion, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando,string imagen)
         {
             this.descripcion = descripcion;
             this.habilidades = habilidades;
@@ -20,6 +20,7 @@ namespace HearthstoneProject
             this.nombre = nombre;
             this.costo = costo;
             this.dueño = dueño;
+            this.imagen = imagen;
         }
 
         //Método actualizado para Hechizo:

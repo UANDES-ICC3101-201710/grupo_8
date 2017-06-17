@@ -16,6 +16,7 @@ namespace HearthstoneProject
         public List<int> canthabilidad;     //Cuanto afectará al objetivo
         public List<string> cuando;         //Indica cuándo se activará la habilidad. Ej: "Grito de batalla:..., Estertor:..., etc).
         public string descripcion;          //Un resumen de que hacen todas las habilidades.
+        public string imagen;
 
         //Este método activa un efecto de habilidad:
         public virtual void Habilidad(string habilidad, int x, List<Objeto> objetivos, string tipo)
@@ -25,7 +26,7 @@ namespace HearthstoneProject
                 for (int i = 0; i < x; i++)
                 {
                     Esbirro invocado = (Esbirro)objetivos[1];
-                    (objetivos[0] as Heroe).campo.Add(new Esbirro(invocado.nombre,invocado.costo,invocado.dueño,invocado.tipo,invocado.vida,invocado.ataque,invocado.provocacion,invocado.veneno,invocado.viento,invocado.escudo,invocado.sigilo,invocado.habilidades,invocado.objetivo,invocado.raza,invocado.canthabilidad,invocado.cuando,invocado.descripcion));
+                    (objetivos[0] as Heroe).campo.Add(new Esbirro(invocado.nombre,invocado.costo,invocado.dueño,invocado.tipo,invocado.vida,invocado.ataque,invocado.provocacion,invocado.veneno,invocado.viento,invocado.escudo,invocado.sigilo,invocado.habilidades,invocado.objetivo,invocado.raza,invocado.canthabilidad,invocado.cuando,invocado.descripcion,invocado.imagen));
                 }
             }
             else if (habilidad != null)

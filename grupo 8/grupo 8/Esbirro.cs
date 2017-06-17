@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hearthstone
+namespace HearthstoneProject
 {
     public class Esbirro : Carta, IVivos
     {
@@ -95,3 +95,4 @@ namespace Hearthstone
         }
     }
 }
+

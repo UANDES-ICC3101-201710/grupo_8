@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hearthstone
+namespace HearthstoneProject
 {
     public class Heroe : Objeto, IVivos
     {
@@ -52,7 +52,7 @@ namespace Hearthstone
         }
         public void Iniciarturno()
         {
-            if (maxmana<10) { maxmana += 1; }
+            if (maxmana < 10) { maxmana += 1; }
             mana = maxmana;
             Robar();
             puedeatacar += 1;
@@ -101,7 +101,7 @@ namespace Hearthstone
         {
             ActivarHabilidades(null);
             mana -= 2;
-            foreach(Esbirro esbirro in campo)
+            foreach (Esbirro esbirro in campo)
             {
                 ActivarHabilidades("inspirar");
             }

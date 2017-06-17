@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hearthstone
+namespace HearthstoneProject
 {
     public class Heroe : Objeto, IVivos
     {
@@ -24,7 +24,7 @@ namespace Hearthstone
         public List<Esbirro> campo;
         public List<Carta> cementerio;
 
-        public Heroe(string nombre, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo)
+        public Heroe(string nombre, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo,string imagen)
         {
             this.descripcion = descripcion;
             this.enemigo = enemigo;
@@ -49,10 +49,11 @@ namespace Hearthstone
             campo = cam;
             this.nombre = nombre;
             this.mazo = mazo;
+            this.imagen = imagen;
         }
         public void Iniciarturno()
         {
-            if (maxmana<10) { maxmana += 1; }
+            if (maxmana < 10) { maxmana += 1; }
             mana = maxmana;
             Robar();
             puedeatacar += 1;
@@ -101,7 +102,7 @@ namespace Hearthstone
         {
             ActivarHabilidades(null);
             mana -= 2;
-            foreach(Esbirro esbirro in campo)
+            foreach (Esbirro esbirro in campo)
             {
                 ActivarHabilidades("inspirar");
             }

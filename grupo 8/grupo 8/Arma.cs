@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hearthstone
+namespace HearthstoneProject
 {
     class Arma : Carta
     {
@@ -13,7 +13,7 @@ namespace Hearthstone
         public int duracion;
 
         //Constructor:
-        public Arma(string nombre, int costo, Heroe dueño, int ataque, int duracion, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, string descripcion)
+        public Arma(string nombre, int costo, Heroe dueño, int ataque, int duracion, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, string descripcion,string imagen)
         {
             this.descripcion = descripcion;
             this.habilidades = habilidades;
@@ -26,6 +26,7 @@ namespace Hearthstone
             this.dueño = dueño;
             this.ataque = ataque;
             this.duracion = duracion;
+            this.imagen = imagen;
         }
 
         //Método actualizado para Arma:

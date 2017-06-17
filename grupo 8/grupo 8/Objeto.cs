@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hearthstone
+namespace HearthstoneProject
 {
     public abstract class Objeto : IObjeto
     {
@@ -16,15 +16,17 @@ namespace Hearthstone
         public List<int> canthabilidad;     //Cuanto afectará al objetivo
         public List<string> cuando;         //Indica cuándo se activará la habilidad. Ej: "Grito de batalla:..., Estertor:..., etc).
         public string descripcion;          //Un resumen de que hacen todas las habilidades.
+        public string imagen;
 
         //Este método activa un efecto de habilidad:
         public virtual void Habilidad(string habilidad, int x, List<Objeto> objetivos, string tipo)
         {
-            if (habilidad=="invoca")
+            if (habilidad == "invoca")
             {
-                for (int i=0; i < x; i++)
+                for (int i = 0; i < x; i++)
                 {
-                    (objetivos[0] as Heroe).campo.Add((objetivos[1] as Esbirro));
+                    Esbirro invocado = (Esbirro)objetivos[1];
+                    (objetivos[0] as Heroe).campo.Add(new Esbirro(invocado.nombre,invocado.costo,invocado.dueño,invocado.tipo,invocado.vida,invocado.ataque,invocado.provocacion,invocado.veneno,invocado.viento,invocado.escudo,invocado.sigilo,invocado.habilidades,invocado.objetivo,invocado.raza,invocado.canthabilidad,invocado.cuando,invocado.descripcion,invocado.imagen));
                 }
             }
             else if (habilidad != null)
@@ -91,7 +93,7 @@ namespace Hearthstone
                             esbirro.sigilo = false;
                             esbirro.veneno = false;
                             esbirro.viento = false;
-                            for(int i=0;i<esbirro.habilidades.Count;i++)
+                            for (int i = 0; i < esbirro.habilidades.Count; i++)
                             {
                                 esbirro.habilidades[i] = null;
                             }

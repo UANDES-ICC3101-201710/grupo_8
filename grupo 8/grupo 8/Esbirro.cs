@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hearthstone
+namespace HearthstoneProject
 {
     public class Esbirro : Carta, IVivos
     {
@@ -24,7 +24,7 @@ namespace Hearthstone
         public bool inmune;
 
         //Constructor:
-        public Esbirro(string nombre, int costo, Heroe dueño, string tipo, int vida, int ataque, bool provocacion, bool veneno, bool viento, bool escudo, bool sigilo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, string descripcion)
+        public Esbirro(string nombre, int costo, Heroe dueño, string tipo, int vida, int ataque, bool provocacion, bool veneno, bool viento, bool escudo, bool sigilo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, string descripcion,string imagen)
         {
             this.habilidades = habilidades;
             this.objetivo = objetivo;
@@ -44,6 +44,7 @@ namespace Hearthstone
             this.viento = viento;
             this.escudo = escudo;
             this.sigilo = sigilo;
+            this.imagen = imagen;
         }
 
 
@@ -95,3 +96,4 @@ namespace Hearthstone
         }
     }
 }
+

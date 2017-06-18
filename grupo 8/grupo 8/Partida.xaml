@@ -104,16 +104,16 @@
         <Image x:Name="Icme8" Source="River_Crocolisk(535).png" HorizontalAlignment="Left" Height="190" Margin="764,-138,0,0" VerticalAlignment="Top" Width="134"/>
         <Image x:Name="Icme9" Source="River_Crocolisk(535).png" HorizontalAlignment="Left" Height="190" Margin="848,-138,0,0" VerticalAlignment="Top" Width="134"/>
         <Image x:Name="Icme0" Source="River_Crocolisk(535).png" HorizontalAlignment="Left" Height="190" Margin="920,-136,0,0" VerticalAlignment="Top" Width="134"/>
-        <Image Name="Ih1" Source="Anduin_Wrynn.png" HorizontalAlignment="Left" Height="168" Margin="576,457,0,0" VerticalAlignment="Top" Width="124"/>
+        <Image Name="Ih1" Source="Anduin_Wrynn(110).png" HorizontalAlignment="Left" Height="168" Margin="576,457,0,0" VerticalAlignment="Top" Width="124"/>
         <Label x:Name="h1vida" Content="Vida" HorizontalAlignment="Left" Height="26" Margin="668,554,0,0" VerticalAlignment="Top" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFD2C2C" RenderTransformOrigin="1.094,0.517"/>
-        <Label x:Name="a1ataque" Content="Ataque" HorizontalAlignment="Left" Margin="474,536,0,207" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFDFD2C" RenderTransformOrigin="1.286,0.596"/>
-        <Image Name="Ia1" Source="Anduin_Wrynn.png" HorizontalAlignment="Left" Height="64" Margin="494,500,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label x:Name="a1ataque" Content="Ataque" HorizontalAlignment="Left" Margin="474,536,0,197" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFDFD2C" RenderTransformOrigin="1.286,0.596"/>
+        <Image Name="Ia1" Source="Anduin_Wrynn(110).png" HorizontalAlignment="Left" Height="64" Margin="494,500,0,0" VerticalAlignment="Top" Width="68"/>
         <Label x:Name="a1duracion" Content="duracion" HorizontalAlignment="Left" Height="26" Margin="552,540,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FFAFB0B2"/>
         <Label x:Name="h1armadura" Content="Armadura" HorizontalAlignment="Left" Height="26" Margin="668,520,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FF8A8B8D"/>
-        <Image x:Name="Ih2" Source="Anduin_Wrynn.png" HorizontalAlignment="Left" Height="168" Margin="566,49,0,0" VerticalAlignment="Top" Width="124"/>
+        <Image x:Name="Ih2" Source="Anduin_Wrynn(110).png" HorizontalAlignment="Left" Height="168" Margin="566,49,0,0" VerticalAlignment="Top" Width="124"/>
         <Label x:Name="h2vida" Content="Vida" HorizontalAlignment="Left" Height="26" Margin="658,146,0,0" VerticalAlignment="Top" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFD2C2C" RenderTransformOrigin="1.094,0.517"/>
-        <Label x:Name="a2ataque" Content="Ataque" HorizontalAlignment="Left" Margin="464,128,0,615" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFDFD2C" RenderTransformOrigin="1.286,0.596"/>
-        <Image x:Name="Ia2" Source="Anduin_Wrynn.png" HorizontalAlignment="Left" Height="64" Margin="484,92,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label x:Name="a2ataque" Content="Ataque" HorizontalAlignment="Left" Margin="464,128,0,611" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFDFD2C" RenderTransformOrigin="1.286,0.596"/>
+        <Image x:Name="Ia2" Source="Anduin_Wrynn(110).png" HorizontalAlignment="Left" Height="64" Margin="484,92,0,0" VerticalAlignment="Top" Width="68"/>
         <Label x:Name="a2duracion" Content="Duracion" HorizontalAlignment="Left" Height="26" Margin="542,132,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FFBFC1C5"/>
         <Label x:Name="h2armadura" Content="Armadura" HorizontalAlignment="Left" Height="26" Margin="658,112,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FF9C9D9E"/>
         <Label x:Name="mana" Content="Mana" HorizontalAlignment="Left" Height="42" Margin="808,474,0,0" VerticalAlignment="Top" Width="52" FontSize="14" FontWeight="Bold" Background="#FF2C81FD"/>

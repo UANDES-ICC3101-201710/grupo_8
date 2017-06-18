@@ -33,6 +33,15 @@
         <TextBlock HorizontalAlignment="Left" Height="34" Margin="357,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"><Run Text="Equipas una Daga 1/2"/><Run Text="."/></TextBlock>
         <Label x:Name="Lporfa2" Content="Los jugadores no pueden tener el mismo nombre." HorizontalAlignment="Left" Margin="768,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,-0.231" Width="273" Foreground="Red"/>
         <Button Name="Bvolver" Content="Volver al Menu" HorizontalAlignment="Left" Height="23" Margin="23,717,0,0" VerticalAlignment="Top" Width="141" Click="Bvolver_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="45" Margin="47,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="J1: Nombre:"/><LineBreak/><Run Text="      "/><Run Text="  "/><Run Text="Heroe:"/></TextBlock>
+        <TextBlock Name="TBLnj1" HorizontalAlignment="Left" Height="20" Margin="113,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+        <TextBlock Name="TBLhj1" HorizontalAlignment="Left" Height="21" Margin="113,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <TextBlock HorizontalAlignment="Left" Height="45" Margin="993,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="J"/><Run Text="2"/><Run Text=": Nombre:"/><LineBreak/><Run Text="      "/><Run Text="  "/><Run Text="Heroe:"/></TextBlock>
+        <TextBlock x:Name="TBLnj2" HorizontalAlignment="Left" Height="20" Margin="1059,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+        <TextBlock x:Name="TBLhj2" HorizontalAlignment="Left" Height="21" Margin="1059,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Label Name="Llisto" Content="¿Todo listo?" HorizontalAlignment="Left" Height="30" Margin="588,175,0,0" VerticalAlignment="Top" Width="73"/>
+        <Button Name="Blisto" Content="Listo" HorizontalAlignment="Left" Height="22" Margin="462,216,0,0" VerticalAlignment="Top" Width="106"/>
+        <Button x:Name="Bnolisto" Content="Reingresar datos" HorizontalAlignment="Left" Height="22" Margin="679,216,0,0" VerticalAlignment="Top" Width="106"/>
 
     </Grid>
 </Window>

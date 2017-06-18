@@ -34,6 +34,9 @@ namespace HearthstoneProject
             j1 = new Heroe(null, null, null, null, null, null, null, null, null,null);
             j2 = new Heroe(null, null, null, null, null, null, null, null, j1,null);
             j1.enemigo = j2;
+            Blisto.Visibility = Visibility.Hidden;
+            Bnolisto.Visibility = Visibility.Hidden;
+            Llisto.Visibility = Visibility.Hidden;
         }
 
         //Método útil para desordenar el mazo:
@@ -58,7 +61,7 @@ namespace HearthstoneProject
         {
             //Verificando que se haya ingresado un nombre y no sea el mismo del jugador anterior:
             if (TBOnombre.Text == "") { Lporfa.Visibility = Visibility.Visible; }
-            if (TBOnombre.Text== jug.enemigo.nombre) { Lporfa2.Visibility = Visibility.Visible; }
+            else if (TBOnombre.Text== jug.enemigo.nombre) { Lporfa2.Visibility = Visibility.Visible; }
             else
             {
                 //Se modifica la ventana:
@@ -189,7 +192,19 @@ namespace HearthstoneProject
                 //Cada jugador roba 3 cartas:
                 for (int ii = 0; ii <= 2; ii++) { jug.Robar(); }
                 coin.Add(jug);
+
+                if (jug==j2)
+                {
+                    //Seguro()//
+                    EmpezarPartida();
+                }
             }
+        }
+
+        //Modificar la ventana para preguntar si está todo bien:
+        public void Seguro()
+        {
+
         }
 
         //Al estar todo listo, se terminan los preparativos y se pasan los datos a la nueva ventana para luego abrirla:
@@ -215,90 +230,58 @@ namespace HearthstoneProject
             else
             {
                 DefinirHeroe(j2, TBOnombre.Text, "cazador");
-                EmpezarPartida();
             }
         }
 
         private void Bmago_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "mago"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "mago");
-                EmpezarPartida();
-            }
+            else{ DefinirHeroe(j2, TBOnombre.Text, "mago"); }
         }
 
         private void Brogue_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "rogue"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "rogue");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "rogue"); }
         }
 
         private void Bbrujo_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "brujo"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "brujo");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "brujo"); }
         }
 
         private void Bdruida_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "druida"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "druida");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "druida"); }
         }
 
         private void Bsacerdote_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "sacerdote"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "sacerdote");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "sacerdote"); }
         }
 
         private void Bchaman_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "chaman"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "chaman");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "chaman"); }
         }
 
         private void Bguerrero_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "guerrero"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "guerrero");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "guerrero"); }
         }
 
         private void Bpaladin_Click(object sender, RoutedEventArgs e)
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "paladin"); }
-            else
-            {
-                DefinirHeroe(j2, TBOnombre.Text, "paladin");
-                EmpezarPartida();
-            }
+            else { DefinirHeroe(j2, TBOnombre.Text, "paladin"); }
         }
 
+        //Evento para volver al menú anterior:
         private void Bvolver_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = new MainWindow();

@@ -54,25 +54,28 @@ namespace HearthstoneProject
         }
 
         //Método para definir las caracteristicas de un héroe a un jugador:
-        public void Definir_Heroe(Heroe jug,string nombre, string heroe)
+        public void DefinirHeroe(Heroe jug,string nombre, string heroe)
         {
             //Verificando que se haya ingresado un nombre y no sea el mismo del jugador anterior:
             if (TBOnombre.Text == "") { Lporfa.Visibility = Visibility.Visible; }
             if (TBOnombre.Text== jug.enemigo.nombre) { Lporfa2.Visibility = Visibility.Visible; }
             else
             {
+                //Se modifica la ventana:
                 Lporfa.Visibility = Visibility.Hidden;
                 Lporfa.Visibility = Visibility.Hidden;
                 TBLjugador.Text = "Jugador2";
                 TBOnombre.Text = "";
 
-                jug.nombre = nombre;
                 List<Carta> tempmazo = new List<Carta>();
                 List<string> temphabilidad = new List<string>();
                 List<string> tempraza = new List<string>();
                 List<int> tempcanthabilidad = new List<int>();
                 List<List<Objeto>> tempobjetivos = new List<List<Objeto>>();
                 List<string> tempcuando = new List<string>();
+
+
+                //Se modifica las caracteristicas del heroe según la opción elegida:
                 if (nombre == "cazador")
                 {
                     jug.descripcion = "Inflige 2 de daño al heroe enemigo";
@@ -112,17 +115,15 @@ namespace HearthstoneProject
                 {
 
                 }
+
                 jug.mazo = tempmazo;
                 jug.objetivo = tempobjetivos;
                 jug.habilidades = temphabilidad;
                 jug.raza = tempraza;
                 jug.canthabilidad = tempcanthabilidad;
                 jug.cuando = tempcuando;
-
-                for (int ii = 0; ii <= 2; ii++) { jug.Robar(); }
-                coin.Add(jug);
-
-
+                jug.nombre = nombre;
+                //Creando el mazo:
                 Esbirro tempesbirro = null;
                 //3 wisp:
                 for (int ii = 0; ii <= 2; ii++)
@@ -185,6 +186,9 @@ namespace HearthstoneProject
                     jug.mazo.Add(tempesbirro);
                 }
                 jug.mazo = DesordenarLista(jug.mazo);
+                //Cada jugador roba 3 cartas:
+                for (int ii = 0; ii <= 2; ii++) { jug.Robar(); }
+                coin.Add(jug);
             }
         }
 
@@ -204,96 +208,93 @@ namespace HearthstoneProject
             Close();
         }
 
-        //Se prepara la ventana para confirmar
-
-
         //Eventos de click al seleccionar héroe:
         private void Bcazador_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "cazador"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "cazador"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "cazador");
+                DefinirHeroe(j2, TBOnombre.Text, "cazador");
                 EmpezarPartida();
             }
         }
 
         private void Bmago_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "mago"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "mago"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "mago");
+                DefinirHeroe(j2, TBOnombre.Text, "mago");
                 EmpezarPartida();
             }
         }
 
         private void Brogue_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "rogue"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "rogue"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "rogue");
+                DefinirHeroe(j2, TBOnombre.Text, "rogue");
                 EmpezarPartida();
             }
         }
 
         private void Bbrujo_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "brujo"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "brujo"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "brujo");
+                DefinirHeroe(j2, TBOnombre.Text, "brujo");
                 EmpezarPartida();
             }
         }
 
         private void Bdruida_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "druida"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "druida"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "druida");
+                DefinirHeroe(j2, TBOnombre.Text, "druida");
                 EmpezarPartida();
             }
         }
 
         private void Bsacerdote_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "sacerdote"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "sacerdote"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "sacerdote");
+                DefinirHeroe(j2, TBOnombre.Text, "sacerdote");
                 EmpezarPartida();
             }
         }
 
         private void Bchaman_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "chaman"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "chaman"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "chaman");
+                DefinirHeroe(j2, TBOnombre.Text, "chaman");
                 EmpezarPartida();
             }
         }
 
         private void Bguerrero_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "guerrero"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "guerrero"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "guerrero");
+                DefinirHeroe(j2, TBOnombre.Text, "guerrero");
                 EmpezarPartida();
             }
         }
 
         private void Bpaladin_Click(object sender, RoutedEventArgs e)
         {
-            if (TBLjugador.Text == "Jugador1") { Definir_Heroe(j1, TBOnombre.Text, "paladin"); }
+            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "paladin"); }
             else
             {
-                Definir_Heroe(j2, TBOnombre.Text, "paladin");
+                DefinirHeroe(j2, TBOnombre.Text, "paladin");
                 EmpezarPartida();
             }
         }

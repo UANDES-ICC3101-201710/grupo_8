@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Drawing;
 
 namespace HearthstoneProject
 {
@@ -21,6 +22,7 @@ namespace HearthstoneProject
     {
         Heroe jugador1;
         Heroe jugador2;
+        //Heroe jugador; //El jugador del turno (irá cambiando)
         //Atributos que guardaran los controles dependiendo de su funcion (sirve para ActualizarVentana() ):
         List<Image> imano;
         List<Label> amano;
@@ -243,12 +245,64 @@ namespace HearthstoneProject
             cmano.Add(cm9costo);
             cmano.Add(cm10costo);
             ActualizarVentana(jugador1);
+            Lturno.Content = "Tú partes,";
         }
 
         //Método para actualizar datos y controles de la ventana segun jugador actual:
         public void ActualizarVentana(Heroe jactual)
         {
-            
+            Lturno.Content = "Tu turno,";
+            Lturno2.Content = jactual.nombre;
+            Ldescripcion.Content = jactual.descripcion;
+
+            //Datos del heroe:
+            h1vida.Content = Convert.ToString(jactual.vida);
+            if (jactual.armadura>0)
+            {
+                h1armadura.Visibility = Visibility.Visible;
+                h1armadura.Content = Convert.ToString(jactual.armadura);
+            }
+            else { h1armadura.Visibility = Visibility.Hidden; }
+            if (jactual.ataque>0)
+            {
+                a1ataque.Visibility = Visibility.Visible;
+                a1duracion.Visibility = Visibility.Visible;
+                Ia1.Visibility = Visibility.Visible;
+                a1ataque.Content = Convert.ToString(jactual.ataque);
+                a1duracion.Content = Convert.ToString(jactual.duracion);
+            }
+            else
+            {
+                a1ataque.Visibility = Visibility.Hidden;
+                a1duracion.Visibility = Visibility.Hidden;
+                Ia1.Visibility = Visibility.Hidden;
+            }
+            mana.Content = Convert.ToString(jactual.mana);
+            maxmana.Content = Convert.ToString(jactual.maxmana);
+
+            //Datos del heroe enemigo:
+            h2vida.Content = Convert.ToString(jactual.enemigo.vida);
+            if (jactual.enemigo.armadura > 0)
+            {
+                h2armadura.Visibility = Visibility.Visible;
+                h2armadura.Content = Convert.ToString(jactual.enemigo.armadura);
+            }
+            else { h2armadura.Visibility = Visibility.Hidden; }
+            if (jactual.enemigo.ataque > 0)
+            {
+                a2ataque.Visibility = Visibility.Visible;
+                a2duracion.Visibility = Visibility.Visible;
+                Ia2.Visibility = Visibility.Visible;
+                a2ataque.Content = Convert.ToString(jactual.enemigo.ataque);
+                a2duracion.Content = Convert.ToString(jactual.enemigo.duracion);
+            }
+            else
+            {
+                a2ataque.Visibility = Visibility.Hidden;
+                a2duracion.Visibility = Visibility.Hidden;
+                Ia2.Visibility = Visibility.Hidden;
+            }
+
             int i = 0;
             //Cartas de la mano:
             foreach (Carta carta in jactual.mano)
@@ -277,12 +331,44 @@ namespace HearthstoneProject
                 i++;
             }
 
-            //Esbirros en el campo
             i = 0;
+            //Esbirros en el campo:
             foreach (Esbirro esbirro in jactual.campo)
             {
                 //BitmapImage image = new BitmapImage(new Uri(esbirro.imagen, UriKind.Relative));
-                //imano[i].Source = image;
+                //icampo[i].Source = image;
+
+                acampo[i].Content = Convert.ToString(esbirro.ataque);
+                vcampo[i].Content = Convert.ToString(esbirro.vida);
+                if (esbirro.vida<esbirro.maxvida)
+                {
+                    vcampo[i].Foreground = Brushes.OrangeRed;
+                }
+                i++;
+            }
+
+            i = 0;
+            //Esbirros en el campo enemigo:
+            foreach (Esbirro esbirro in jactual.enemigo.campo)
+            {
+                //BitmapImage image = new BitmapImage(new Uri(esbirro.imagen, UriKind.Relative));
+                //icenemigo[i].Source = image;
+
+                acenemigo[i].Content = Convert.ToString(esbirro.ataque);
+                vcenemigo[i].Content = Convert.ToString(esbirro.vida);
+                if (esbirro.vida < esbirro.maxvida)
+                {
+                    vcenemigo[i].Foreground = Brushes.OrangeRed;
+                }
+                i++;
+            }
+
+            i=0;
+            //Mostrando la cantidad de cartas del enemigo, sin mostrar cuales son:
+            foreach (Carta carta in jactual.enemigo.mano)
+            {
+                //BitmapImage image = new BitmapImage(new Uri(//imagen de tomo de carta//, UriKind.Relative));
+                //imenemigo[i].Source = image;
             }
         }
     }

@@ -31,8 +31,8 @@ namespace HearthstoneProject
             InitializeComponent();
             Lporfa.Visibility = Visibility.Hidden;
             Lporfa2.Visibility = Visibility.Hidden;
-            j1 = new Heroe(null, null, null, null, null, null, null, null, null,null);
-            j2 = new Heroe(null, null, null, null, null, null, null, null, j1,null);
+            j1 = new Heroe(null, null, null, null, null, null, null, null, null,null,null);
+            j2 = new Heroe(null, null, null, null, null, null, null, null, j1,null,null);
             j1.enemigo = j2;
             Blisto.Visibility = Visibility.Hidden;
             Bnolisto.Visibility = Visibility.Hidden;
@@ -79,7 +79,7 @@ namespace HearthstoneProject
 
 
                 //Se modifica las caracteristicas del heroe según la opción elegida:
-                if (nombre == "cazador")
+                if (heroe == "cazador")
                 {
                     jug.descripcion = "Inflige 2 de daño al heroe enemigo";
                     temphabilidad.Add("daña");
@@ -90,7 +90,7 @@ namespace HearthstoneProject
                     tempcuando.Add(null);
                     tempraza.Add(null);
                 }
-                else if (nombre == "guerrero")
+                else if (heroe == "guerrero")
                 {
                     jug.descripcion = "Obtiene 2 de armadura";
                     temphabilidad.Add("suma armadura");
@@ -101,7 +101,7 @@ namespace HearthstoneProject
                     tempcuando.Add(null);
                     tempraza.Add(null);
                 }
-                else if (nombre == "paladin")
+                else if (heroe == "paladin")
                 {
                     jug.descripcion = "Invoca un Recluta de la Mano de Plata 1/1";
                     temphabilidad.Add("invoca");
@@ -114,7 +114,7 @@ namespace HearthstoneProject
                     tempcuando.Add(null);
                     tempraza.Add(null);
                 }
-                else if (nombre == "rogue")
+                else if (heroe == "rogue")
                 {
 
                 }

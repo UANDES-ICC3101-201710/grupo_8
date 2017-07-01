@@ -20,25 +20,24 @@ namespace HearthstoneProject
     /// </summary>
     public partial class Partida : Window
     {
-        Heroe jugador1;
-        Heroe jugador2;
+        Heroe jugador;
         //Heroe jugador; //El jugador del turno (irá cambiando)
         //Atributos que guardaran los controles dependiendo de su funcion (sirve para ActualizarVentana() ):
-        List<Image> imano;
+        List<Button> imano;
         List<Label> amano;
         List<Label> vmano;
         List<Label> cmano;
-        List<Image> icampo;
+        List<Button> icampo;
         List<Label> acampo;
         List<Label> vcampo;
-        List<Image> icenemigo;
+        List<Rectangle> rcampo;
+        List<Button> icenemigo;
         List<Label> acenemigo;
         List<Label> vcenemigo;
         List<Image> imenemigo;
-        public Partida(Heroe jug1, Heroe jug2)
+        public Partida(Heroe jug1)
         {
-            jugador1 = jug1;
-            jugador2 = jug2;
+            jugador = jug1;
             InitializeComponent();
             //Escondiendo los controles que no aparecen al partir:
             Icm1.Visibility = Visibility.Hidden;
@@ -139,18 +138,29 @@ namespace HearthstoneProject
             a2duracion.Visibility = Visibility.Hidden;
             Ia1.Visibility = Visibility.Hidden;
             Ia2.Visibility = Visibility.Hidden;
+            Rc1.Visibility = Visibility.Hidden;
+            Rc2.Visibility = Visibility.Hidden;
+            Rc3.Visibility = Visibility.Hidden;
+            Rc4.Visibility = Visibility.Hidden;
+            Rc5.Visibility = Visibility.Hidden;
+            Rc6.Visibility = Visibility.Hidden;
+            Rc7.Visibility = Visibility.Hidden;
+            Rc8.Visibility = Visibility.Hidden;
+            habusada.Visibility = Visibility.Hidden;
+            nomana.Visibility = Visibility.Hidden;
             //Agregando los controles a las listas atributos:
-            imano = new List<Image>();
+            imano = new List<Button>();
             amano = new List<Label>();
             vmano = new List<Label>();
             cmano = new List<Label>();
-            icampo = new List<Image>();
+            icampo = new List<Button>();
             acampo = new List<Label>();
             vcampo = new List<Label>();
-            icenemigo = new List<Image>();
+            icenemigo = new List<Button>();
             acenemigo = new List<Label>();
             vcenemigo = new List<Label>();
             imenemigo = new List<Image>();
+            rcampo = new List<Rectangle>();
             imano.Add(Icm1);
             imano.Add(Icm2);
             imano.Add(Icm3);
@@ -244,7 +254,16 @@ namespace HearthstoneProject
             cmano.Add(cm8costo);
             cmano.Add(cm9costo);
             cmano.Add(cm10costo);
-            ActualizarVentana(jugador1);
+            rcampo.Add(Rc1);
+            rcampo.Add(Rc2);
+            rcampo.Add(Rc3);
+            rcampo.Add(Rc4);
+            rcampo.Add(Rc5);
+            rcampo.Add(Rc6);
+            rcampo.Add(Rc7);
+            rcampo.Add(Rc8);
+            jugador.Iniciarturno();
+            ActualizarVentana(jugador);
             Lturno.Content = "Tú partes,";
         }
 
@@ -253,9 +272,10 @@ namespace HearthstoneProject
         {
             Lturno.Content = "Tu turno,";
             Lturno2.Content = jactual.nombre;
-            Ldescripcion.Content = jactual.descripcion;
 
             //Datos del heroe:
+            heroej.Content = jactual.nombre;
+            Ldescripcion.Content = jactual.descripcion;
             h1vida.Content = Convert.ToString(jactual.vida);
             if (jactual.armadura>0)
             {
@@ -281,6 +301,7 @@ namespace HearthstoneProject
             maxmana.Content = Convert.ToString(jactual.maxmana);
 
             //Datos del heroe enemigo:
+            heroee.Content = jactual.enemigo.nombre;
             h2vida.Content = Convert.ToString(jactual.enemigo.vida);
             if (jactual.enemigo.armadura > 0)
             {
@@ -311,6 +332,8 @@ namespace HearthstoneProject
                 //(Transformacion de string de direccion de imagen a source de imagen sacada por internet):
                 //BitmapImage image = new BitmapImage(new Uri(carta.imagen, UriKind.Relative));
                 //imano[i].Source = image;
+                imano[i].Content = carta.nombre;
+                imano[i].Visibility = Visibility.Visible;
 
                 //modificando los labels para indicar costo, ataque, vida, etc:
                 cmano[i].Content = Convert.ToString(carta.costo);
@@ -318,16 +341,26 @@ namespace HearthstoneProject
                 {
                     amano[i].Content = Convert.ToString(esbirro.ataque);
                     vmano[i].Content = Convert.ToString(esbirro.vida);
+                    amano[i].Visibility = Visibility.Visible;
+                    vmano[i].Visibility = Visibility.Visible;
                 }
                 if (carta is Arma arma)
                 {
                     amano[i].Content = Convert.ToString(arma.ataque);
                     vmano[i].Content = Convert.ToString(arma.duracion);
+                    amano[i].Visibility = Visibility.Visible;
+                    vmano[i].Visibility = Visibility.Visible;
                 }
                 imano[i].Visibility = Visibility.Visible;
-                amano[i].Visibility = Visibility.Visible;
-                vmano[i].Visibility = Visibility.Visible;
                 cmano[i].Visibility = Visibility.Visible;
+                i++;
+            }
+            while (i<imano.Count)
+            {
+                imano[i].Visibility = Visibility.Hidden;
+                amano[i].Visibility = Visibility.Hidden;
+                vmano[i].Visibility = Visibility.Hidden;
+                cmano[i].Visibility = Visibility.Hidden;
                 i++;
             }
 
@@ -337,6 +370,10 @@ namespace HearthstoneProject
             {
                 //BitmapImage image = new BitmapImage(new Uri(esbirro.imagen, UriKind.Relative));
                 //icampo[i].Source = image;
+                icampo[i].Content = esbirro.nombre;
+                icampo[i].Visibility = Visibility.Visible;
+                acampo[i].Visibility = Visibility.Visible;
+                vcampo[i].Visibility = Visibility.Visible;
 
                 acampo[i].Content = Convert.ToString(esbirro.ataque);
                 vcampo[i].Content = Convert.ToString(esbirro.vida);
@@ -346,6 +383,13 @@ namespace HearthstoneProject
                 }
                 i++;
             }
+            while (i < icampo.Count)
+            {
+                icampo[i].Visibility = Visibility.Hidden;
+                acampo[i].Visibility = Visibility.Hidden;
+                vcampo[i].Visibility = Visibility.Hidden;
+                i++;
+            }
 
             i = 0;
             //Esbirros en el campo enemigo:
@@ -353,6 +397,10 @@ namespace HearthstoneProject
             {
                 //BitmapImage image = new BitmapImage(new Uri(esbirro.imagen, UriKind.Relative));
                 //icenemigo[i].Source = image;
+                icenemigo[i].Content = esbirro.nombre;
+                icenemigo[i].Visibility = Visibility.Visible;
+                acenemigo[i].Visibility = Visibility.Visible;
+                vcenemigo[i].Visibility = Visibility.Visible;
 
                 acenemigo[i].Content = Convert.ToString(esbirro.ataque);
                 vcenemigo[i].Content = Convert.ToString(esbirro.vida);
@@ -362,14 +410,76 @@ namespace HearthstoneProject
                 }
                 i++;
             }
+            while (i < icenemigo.Count)
+            {
+                icenemigo[i].Visibility = Visibility.Hidden;
+                acenemigo[i].Visibility = Visibility.Hidden;
+                vcenemigo[i].Visibility = Visibility.Hidden;
+                i++;
+            }
 
-            i=0;
+            i = 0;
             //Mostrando la cantidad de cartas del enemigo, sin mostrar cuales son:
             foreach (Carta carta in jactual.enemigo.mano)
             {
-                //BitmapImage image = new BitmapImage(new Uri(//imagen de tomo de carta//, UriKind.Relative));
-                //imenemigo[i].Source = image;
+                imenemigo[i].Visibility = Visibility.Visible;
             }
+            while (i < imenemigo.Count)
+            {
+                imenemigo[i].Visibility = Visibility.Hidden;
+                i++;
+            }
+
+            habusada.Visibility = Visibility.Hidden;
+            nomana.Visibility = Visibility.Hidden;
+        }
+
+        //Método que revisa si se está eligiendo un objetivo al apretar un botón:
+        public int RevisarRectangulos(Button b)
+        {
+            foreach(Rectangle rectangulo in rcampo)
+            {
+                if (rectangulo.Visibility==Visibility.Visible)
+                {
+                    if(rectangulo==Rc8 && b==Bhabilidad){ return 2; }
+                    else if (rcampo.IndexOf(rectangulo)==icampo.IndexOf(b)) { return 2}
+                    else { return 1; }
+                    
+                }
+            }
+            return 0;
+        }
+
+        //Eventos de botones:
+
+        private void Bhabilidad_Click(object sender, RoutedEventArgs e)
+        {
+            if (!jugador.puedehabilidad)
+            {
+                habusada.Visibility = Visibility.Visible;
+            }
+            if (jugador.mana<2)
+            {
+                nomana.Visibility = Visibility.Visible;
+            }
+            else if (jugador.puedehabilidad)
+            {
+                jugador.UsarHabilidad();
+                ActualizarVentana(jugador);
+            }
+        }
+
+        private void Blisto_Click(object sender, RoutedEventArgs e)
+        {
+            jugador.Terminarturno();
+            jugador = jugador.enemigo;
+            jugador.Iniciarturno();
+            ActualizarVentana(jugador);
+        }
+
+        private void heroee_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -31,8 +31,8 @@ namespace HearthstoneProject
             InitializeComponent();
             Lporfa.Visibility = Visibility.Hidden;
             Lporfa2.Visibility = Visibility.Hidden;
-            j1 = new Heroe(null, null, null, null, null, null, null, null, null,null,null);
-            j2 = new Heroe(null, null, null, null, null, null, null, null, j1,null,null);
+            j1 = new Heroe(null, null, null, null, null, null, null, null, null, null,null,null);
+            j2 = new Heroe(null, null, null, null, null, null, null, null, null, j1,null,null);
             j1.enemigo = j2;
             Blisto.Visibility = Visibility.Hidden;
             Bnolisto.Visibility = Visibility.Hidden;
@@ -82,6 +82,7 @@ namespace HearthstoneProject
                 if (heroe == "cazador")
                 {
                     jug.descripcion = "Inflige 2 de daño al heroe enemigo";
+                    jug.heroe = "Cazador";
                     temphabilidad.Add("daña");
                     List<Objeto> tempobjetivo = new List<Objeto>();
                     tempobjetivo.Add(jug.enemigo);
@@ -93,6 +94,7 @@ namespace HearthstoneProject
                 else if (heroe == "guerrero")
                 {
                     jug.descripcion = "Obtiene 2 de armadura";
+                    jug.heroe = "Guerrero";
                     temphabilidad.Add("suma armadura");
                     List<Objeto> tempobjetivo = new List<Objeto>();
                     tempobjetivo.Add(jug);
@@ -103,6 +105,7 @@ namespace HearthstoneProject
                 }
                 else if (heroe == "paladin")
                 {
+                    jug.heroe = "Paladin";
                     jug.descripcion = "Invoca un Recluta de la Mano de Plata 1/1";
                     temphabilidad.Add("invoca");
                     List<Objeto> tempobjetivo = new List<Objeto>();
@@ -116,7 +119,7 @@ namespace HearthstoneProject
                 }
                 else if (heroe == "rogue")
                 {
-
+                    jug.heroe = "Rogue";
                 }
 
                 jug.mazo = tempmazo;
@@ -193,8 +196,16 @@ namespace HearthstoneProject
                 for (int ii = 0; ii <= 2; ii++) { jug.Robar(); }
                 coin.Add(jug);
 
+                if (jug==j1)
+                {
+                    TBLnj1.Text = jug.nombre;
+                    TBLhj1.Text = jug.heroe;
+                }
+
                 if (jug==j2)
                 {
+                    TBLnj2.Text = jug.nombre;
+                    TBLhj2.Text = jug.heroe;
                     //Seguro()//
                     EmpezarPartida();
                 }
@@ -218,7 +229,7 @@ namespace HearthstoneProject
             Heroe segundo = coin[0];
 
 
-            Partida par = new Partida(primero, segundo);
+            Partida par = new Partida(primero);
             par.Show();
             Close();
         }

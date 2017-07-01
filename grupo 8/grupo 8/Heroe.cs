@@ -9,6 +9,7 @@ namespace HearthstoneProject
     public class Heroe : Objeto, IVivos
     {
         public string nombre;
+        public string heroe;
         public Heroe enemigo;
         public int vida;
         public int armadura;
@@ -25,7 +26,7 @@ namespace HearthstoneProject
         public List<Carta> cementerio;
         public string ihabilidad;
 
-        public Heroe(string nombre, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo,string imagen, string ihabilidad)
+        public Heroe(string nombre, string heroe, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo,string imagen, string ihabilidad)
         {
             this.descripcion = descripcion;
             this.enemigo = enemigo;
@@ -52,6 +53,7 @@ namespace HearthstoneProject
             this.mazo = mazo;
             this.imagen = imagen;
             this.ihabilidad = ihabilidad;
+            this.heroe = heroe;
         }
         public void Iniciarturno()
         {
@@ -69,11 +71,16 @@ namespace HearthstoneProject
         public void Robar()
         {
             if (mazo.Count == 0) { RecibirDaño(1); }
+            else if (mano.Count == 10)
+            {
+                mazo.RemoveAt(0);
+            }
             else
             {
                 mano.Add(mazo[0]);
                 mazo.Remove(mazo[0]);
             }
+            
         }
 
         //Metodos propios de los vivos (IVivos):

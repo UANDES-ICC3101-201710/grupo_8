@@ -18,7 +18,6 @@ namespace HearthstoneProject
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    [Serializable]
     public partial class Nueva_Partida : Window
     {
         //Atributos para la creación de heroes:

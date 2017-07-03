@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace HearthstoneProject
 {
-    [Serializable]
     public class Esbirro : Carta, IVivos
     {
         //Atributos agregados, propios de Esbirro:

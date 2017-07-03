@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace HearthstoneProject
 {
-    [Serializable]
     class Hechizo : Carta
     {
         //Constructor:

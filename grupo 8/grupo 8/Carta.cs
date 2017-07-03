@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace HearthstoneProject
 {
-    [Serializable]
     public abstract class Carta : Objeto, IObjeto
     {
         //Atributos:

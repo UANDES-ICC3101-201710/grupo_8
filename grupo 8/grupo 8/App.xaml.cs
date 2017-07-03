@@ -11,7 +11,6 @@ namespace HearthstoneProject
     /// <summary>
     /// Lógica de interacción para App.xaml
     /// </summary>
-    [Serializable]
     public partial class App : Application
     {
     }

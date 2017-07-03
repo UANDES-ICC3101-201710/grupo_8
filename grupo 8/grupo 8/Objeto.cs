@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace HearthstoneProject
 {
-    [Serializable]
     public abstract class Objeto : IObjeto
     {
         //Todas nuestras clases tienen la posibilidad de tener habilidades, esta es la razón de la creación de esta clase.

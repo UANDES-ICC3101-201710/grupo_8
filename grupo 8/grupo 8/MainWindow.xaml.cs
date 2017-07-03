@@ -17,6 +17,7 @@ namespace HearthstoneProject
     /// <summary>
     /// Lógica de interacción para Nueva_Partida.xaml
     /// </summary>
+    [Serializable]
     public partial class MainWindow : Window
     {
         public MainWindow()

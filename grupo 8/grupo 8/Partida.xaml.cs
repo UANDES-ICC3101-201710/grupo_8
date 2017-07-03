@@ -12,12 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace HearthstoneProject
 {
     /// <summary>
     /// Lógica de interacción para Partida.xaml
     /// </summary>
+    [Serializable]
     public partial class Partida : Window
     {
         Heroe jugador; //El jugador del turno (irá cambiando)
@@ -296,13 +298,13 @@ namespace HearthstoneProject
             heroej.Content = jugador.nombre;
             Ldescripcion.Content = jugador.descripcion;
             h1vida.Content = Convert.ToString(jugador.vida);
-            if (jugador.armadura>0)
+            if (jugador.armadura > 0)
             {
                 h1armadura.Visibility = Visibility.Visible;
                 h1armadura.Content = Convert.ToString(jugador.armadura);
             }
             else { h1armadura.Visibility = Visibility.Hidden; }
-            if (jugador.ataque>0)
+            if (jugador.ataque > 0)
             {
                 a1ataque.Visibility = Visibility.Visible;
                 a1duracion.Visibility = Visibility.Visible;
@@ -374,7 +376,7 @@ namespace HearthstoneProject
                 cmano[i].Visibility = Visibility.Visible;
                 i++;
             }
-            while (i<imano.Count)
+            while (i < imano.Count)
             {
                 imano[i].Visibility = Visibility.Hidden;
                 amano[i].Visibility = Visibility.Hidden;
@@ -395,7 +397,7 @@ namespace HearthstoneProject
                 icampo[i].Content = esbirro.nombre;
                 acampo[i].Content = Convert.ToString(esbirro.ataque);
                 vcampo[i].Content = Convert.ToString(esbirro.vida);
-                if (esbirro.vida<esbirro.maxvida)
+                if (esbirro.vida < esbirro.maxvida)
                 {
                     vcampo[i].Foreground = Brushes.Orange;
                 }
@@ -469,13 +471,13 @@ namespace HearthstoneProject
                 rec.Visibility = Visibility.Hidden;
             }
 
-            if (jugador.vida<=0)
+            if (jugador.vida <= 0)
             {
                 Ganaste g = new Ganaste(jugador.enemigo);
                 g.Show();
                 Close();
             }
-            else if (jugador.enemigo.vida<=0)
+            else if (jugador.enemigo.vida <= 0)
             {
                 Ganaste g = new Ganaste(jugador);
                 g.Show();
@@ -507,7 +509,7 @@ namespace HearthstoneProject
         private void Bhabilidad_Click(object sender, RoutedEventArgs e)
         {
             //Si ya se estaba eligiendo objetivo de ataque, se muestra error:
-            if (RevisarCualRectangulo()>-1 && RevisarCualRectangulo()!=7) { Lmalseleccion.Visibility = Visibility.Visible; }
+            if (RevisarCualRectangulo() > -1 && RevisarCualRectangulo() != 7) { Lmalseleccion.Visibility = Visibility.Visible; }
             //Si ya se estaba eligiendo objetivo de habilidad, se cancela:
             else if (RevisarCualRectangulo() == 7)
             {
@@ -527,7 +529,7 @@ namespace HearthstoneProject
                 }
                 else if (jugador.puedehabilidad)
                 {
-                    if (jugador.objetivo.Count==0)
+                    if (jugador.objetivo.Count == 0)
                     {
                         Rc8.Visibility = Visibility.Visible;
                         Lseleccion.Visibility = Visibility.Visible;
@@ -546,7 +548,7 @@ namespace HearthstoneProject
             Carta carta = jugador.mano[imano.IndexOf((Button)sender)];
 
             //Si no es seleccionado como objetivo, se activa la carta:
-            if (RevisarCualRectangulo()==-1)
+            if (RevisarCualRectangulo() == -1)
             {
                 //Si el jugador no tiene suficiente mana, error:
                 if (jugador.mana < carta.costo)
@@ -576,7 +578,7 @@ namespace HearthstoneProject
             //Si no, se activa para elegir objetivo de ataque:
             if (RevisarCualRectangulo() == -1)
             {
-                if (jugador.campo[icampo.IndexOf((Button)sender)].atacar <1)
+                if (jugador.campo[icampo.IndexOf((Button)sender)].atacar < 1)
                 {
                     Lyaatacar.Visibility = Visibility.Visible;
                 }
@@ -593,14 +595,14 @@ namespace HearthstoneProject
                 Lseleccion.Visibility = Visibility.Hidden;
             }
             //Si era objetivo del heroe o de esbirro amigo, error:
-            else if (RevisarCualRectangulo()!=7)
+            else if (RevisarCualRectangulo() != 7)
             {
                 Lmalseleccion.Visibility = Visibility.Visible;
             }
             //Si es objetivo de habilidad, se efectua:
             else
             {
-                List < Objeto > templist= new List<Objeto>();
+                List<Objeto> templist = new List<Objeto>();
                 templist.Add(jugador.campo[icampo.IndexOf((Button)sender)]);
                 jugador.objetivo.Add(templist);
                 jugador.UsarHabilidad();
@@ -612,7 +614,7 @@ namespace HearthstoneProject
         private void Ice_Click(object sender, RoutedEventArgs e)
         {
             //Si es objetivo de habilidad, se efectua sobre él:
-            if (RevisarCualRectangulo()==7)
+            if (RevisarCualRectangulo() == 7)
             {
                 List<Objeto> templist = new List<Objeto>();
                 templist.Add(jugador.enemigo.campo[icenemigo.IndexOf((Button)sender)]);
@@ -621,12 +623,12 @@ namespace HearthstoneProject
                 jugador.objetivo.Remove(templist);
             }
             //Si es objetivo de ataque de heroe, se efectua sobre él:
-            else if (RevisarCualRectangulo()==8)
+            else if (RevisarCualRectangulo() == 8)
             {
                 jugador.Atacar(jugador.enemigo.campo[icenemigo.IndexOf((Button)sender)]);
             }
             //Si es objetivo de ataque de esbirro:
-            else if (RevisarCualRectangulo()!=-1)
+            else if (RevisarCualRectangulo() != -1)
             {
                 jugador.campo[RevisarCualRectangulo()].Atacar(jugador.enemigo.campo[icenemigo.IndexOf((Button)sender)]);
             }
@@ -653,7 +655,7 @@ namespace HearthstoneProject
                 }
             }
             //Si se estaba eligiendo objetivo de habilidad, se activa:
-            else if (RevisarCualRectangulo()==7)
+            else if (RevisarCualRectangulo() == 7)
             {
                 List<Objeto> templist = new List<Objeto>();
                 templist.Add(jugador);
@@ -663,7 +665,7 @@ namespace HearthstoneProject
                 ActualizarVentana();
             }
             //Si ya se estaba eligiendo objetivo de ataque de heroe, se cancela:
-            else if (RevisarCualRectangulo()==8)
+            else if (RevisarCualRectangulo() == 8)
             {
                 ActualizarVentana();
             }
@@ -676,12 +678,12 @@ namespace HearthstoneProject
         private void heroee_Click(object sender, RoutedEventArgs e)
         {
             //Si es objetivo del heroe, es atacado:
-            if (RevisarCualRectangulo()==8)
+            if (RevisarCualRectangulo() == 8)
             {
                 jugador.Atacar(jugador.enemigo);
             }
             //Si es objetivo de habilidad, se activa:
-            else if (RevisarCualRectangulo()==7)
+            else if (RevisarCualRectangulo() == 7)
             {
                 List<Objeto> templist = new List<Objeto>();
                 templist.Add(jugador.enemigo);
@@ -695,6 +697,28 @@ namespace HearthstoneProject
                 jugador.campo[RevisarCualRectangulo()].Atacar(jugador.enemigo);
             }
             ActualizarVentana();
+        }
+
+        private static void SaveGame(Partida game)
+        {
+            Console.WriteLine(" Nombre del archivo a guardar: ");
+            string fileName = Console.ReadLine();
+            // Creamos el Stream donde guardaremos nuestro juego
+            FileStream fs = new FileStream(fileName, FileMode.CreateNew);
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(fs, game);
+            fs.Close();
+        }
+        private static Partida LoadGame()
+        {
+            Console.WriteLine(" Nombre del archivo que desea cargar: ");
+            string fileName = Console.ReadLine();
+            // Creamos el Stream donde se encuentra nuestro juego
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            IFormatter formatter = new BinaryFormatter();
+            Partida game = formatter.Deserialize(fs) as Partida;
+            fs.Close();
+            return game;
         }
     }
 }

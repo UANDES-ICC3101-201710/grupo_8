@@ -17,6 +17,7 @@ namespace HearthstoneProject
     /// <summary>
     /// Lógica de interacción para Ganaste.xaml
     /// </summary>
+    [Serializable]
     public partial class Ganaste : Window
     {
         public Ganaste(Heroe ganador)

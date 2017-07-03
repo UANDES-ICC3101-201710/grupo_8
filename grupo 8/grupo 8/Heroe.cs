@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HearthstoneProject
 {
+    [Serializable]
     public class Heroe : Objeto, IVivos
     {
         public string nombre;

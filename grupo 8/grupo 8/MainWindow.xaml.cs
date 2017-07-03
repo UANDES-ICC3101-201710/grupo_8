@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace HearthstoneProject
 {
@@ -23,7 +25,8 @@ namespace HearthstoneProject
         public MainWindow()
         {
             InitializeComponent();
-            Bguardar.Visibility = Visibility.Hidden;
+            lable.Visibility = Visibility.Hidden;
+            TBox.Visibility = Visibility.Hidden;
         }
 
         private void Bnueva_Click(object sender, RoutedEventArgs e)
@@ -35,12 +38,34 @@ namespace HearthstoneProject
 
         private void Bcargar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (TBox.Visibility==Visibility.Hidden)
+            {
+                lable.Visibility = Visibility.Visible;
+                TBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Partida p = new Partida(LoadGame(TBox.Text));
+                p.Show();
+                Close();
+            }
         }
 
         private void Bsalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private static Heroe LoadGame(string nombrePartida)
+        {
+            //Aqui deberia de asignar un nombre de archivo para abrir la partida
+            string fileName = nombrePartida;
+            // Creamos el Stream donde se encuentra nuestro juego
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            BinaryFormatter formatter = new BinaryFormatter();
+            Heroe jugador = formatter.Deserialize(fs) as Heroe;
+            fs.Close();
+            return jugador;
         }
     }
 }

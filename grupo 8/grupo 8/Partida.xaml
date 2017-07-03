@@ -144,6 +144,9 @@
         <Label x:Name="Lmalseleccion" Content="No puedes seleccionar&#xA;ese objetivo." HorizontalAlignment="Left" Height="45" Margin="10,331,0,0" VerticalAlignment="Top" Width="131" Foreground="#FFF70909"/>
         <Label x:Name="Lyaatacar" Content="No puedes atacar con&#xD;&#xA;ese Esbirro en este&#xD;&#xA;turno." HorizontalAlignment="Left" Height="60" Margin="10,376,0,0" VerticalAlignment="Top" Width="131" Foreground="#FFF70909"/>
         <Label x:Name="Lyaatacar2" Content="No puedes atacar de &#xD;&#xA;nuevo en este turno." HorizontalAlignment="Left" Height="44" Margin="304,456,0,0" VerticalAlignment="Top" Width="131" Foreground="#FFF70909"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" Height="28" Margin="16,14,0,0" VerticalAlignment="Top" Width="57" Click="Menu_Click"/>
+        <TextBox Name="TBox" HorizontalAlignment="Left" Height="28" Margin="89,15,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="192"/>
+        <Label x:Name="Larchivo" Content="Ingresa el nombre del archivo" HorizontalAlignment="Left" Height="28" Margin="89,36,0,0" VerticalAlignment="Top" Width="186" Foreground="#FFF70909"/>
 
     </Grid>
 </Window>

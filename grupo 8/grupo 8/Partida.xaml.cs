@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace HearthstoneProject
 {
@@ -39,19 +41,6 @@ namespace HearthstoneProject
         public Partida(Heroe jug1)
         {
             jugador = jug1;
-
-            //Ventajas del 2do jugador:
-            jugador.enemigo.Robar();
-            List<string> temphabilidad1 = new List<string>();
-            List<int> tempcanthabilidad1 = new List<int>();
-            List<List<Objeto>> tempobjetivos1 = new List<List<Objeto>>();
-            List<Objeto> tempobjetivo1 = new List<Objeto>();
-            temphabilidad1.Add("suma mana");
-            tempcanthabilidad1.Add(1);
-            tempobjetivo1.Add(jugador.enemigo);
-            tempobjetivos1.Add(tempobjetivo1);
-            Hechizo moneda = new Hechizo("Moneda", 0, jugador.enemigo, "Ganas 1 de mana por este turno", temphabilidad1, tempobjetivos1, tempcanthabilidad1, "http://media.pypgamers.com/playhs/cartas/es/513.png");
-            jugador.enemigo.mano.Add(moneda);
 
             InitializeComponent();
             //Escondiendo los controles que no aparecen al partir:
@@ -283,9 +272,7 @@ namespace HearthstoneProject
             rcampo.Add(Rc7);
             rcampo.Add(Rc8);
             rcampo.Add(Rc9);
-            jugador.Iniciarturno();
             ActualizarVentana();
-            Lturno.Content = "Tú partes,";
         }
 
         //Método para actualizar datos y controles de la ventana segun jugador actual:
@@ -382,6 +369,8 @@ namespace HearthstoneProject
                 amano[i].Visibility = Visibility.Hidden;
                 vmano[i].Visibility = Visibility.Hidden;
                 cmano[i].Visibility = Visibility.Hidden;
+                TBox.Visibility = Visibility.Hidden;
+                Larchivo.Visibility = Visibility.Hidden;
                 i++;
             }
 
@@ -698,27 +687,29 @@ namespace HearthstoneProject
             }
             ActualizarVentana();
         }
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            if (TBox.Visibility == Visibility.Hidden)
+            {
+                TBox.Visibility = Visibility.Visible;
+                Larchivo.Visibility = Visibility.Visible;
+                TBox.Text = "";
+            }
+            else if (TBox.Text!="")
+            {
+                SaveGame(jugador, TBox.Text);
+                ActualizarVentana();
+            }
+        }
         private static void SaveGame(Heroe jugador, string nombrePartida)
         {
             //Nombre del archivo a guardar cambiar el readLine, por un nombre cualquiera
-            string fileName = fileName;
+            string fileName = nombrePartida;
             // Creamos el Stream donde guardaremos nuestro juego
             FileStream fs = new FileStream(fileName, FileMode.CreateNew);
             IFormatter formatter = new BinaryFormatter();
             formatter.Serialize(fs, jugador);
             fs.Close();
-        }
-
-        private static Heroe LoadGame(string nombrePartida)
-        {
-            //Aqui deberia de asignar un nombre de archivo para abrir la partida
-            string fileName = nombrePartida;
-            // Creamos el Stream donde se encuentra nuestro juego
-            FileStream fs = new FileStream(fileName, FileMode.Open);
-            IFormatter formatter = new BinaryFormatter();
-            Heroe jugador = formatter.Deserialize(fs) as Heroe;
-            fs.Close();
-            return jugador;
         }
     }
 }

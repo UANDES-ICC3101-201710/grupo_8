@@ -234,12 +234,6 @@ namespace HearthstoneProject
             }
         }
 
-        //Modificar la ventana para preguntar si está todo bien:
-        public void Seguro()
-        {
-
-        }
-
         //Al estar todo listo, se terminan los preparativos y se pasan los datos a la nueva ventana para luego abrirla:
         public void EmpezarPartida()
         {
@@ -249,6 +243,21 @@ namespace HearthstoneProject
             Heroe primero = coin[pri];
             coin.RemoveAt(pri);
             Heroe segundo = coin[0];
+
+            //Ventajas del 2do jugador:
+            primero.enemigo.Robar();
+            List<string> temphabilidad1 = new List<string>();
+            List<int> tempcanthabilidad1 = new List<int>();
+            List<List<Objeto>> tempobjetivos1 = new List<List<Objeto>>();
+            List<Objeto> tempobjetivo1 = new List<Objeto>();
+            temphabilidad1.Add("suma mana");
+            tempcanthabilidad1.Add(1);
+            tempobjetivo1.Add(primero.enemigo);
+            tempobjetivos1.Add(tempobjetivo1);
+            Hechizo moneda = new Hechizo("Moneda", 0, primero.enemigo, "Ganas 1 de mana por este turno", temphabilidad1, tempobjetivos1, tempcanthabilidad1, "http://media.pypgamers.com/playhs/cartas/es/513.png");
+            primero.enemigo.mano.Add(moneda);
+
+            primero.Iniciarturno();
 
 
             Partida par = new Partida(primero);

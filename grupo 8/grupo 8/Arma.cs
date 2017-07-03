@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HearthstoneProject
 {
+    [Serializable]
     class Arma : Carta
     {
         //Atributos agregados, propios de Arma:

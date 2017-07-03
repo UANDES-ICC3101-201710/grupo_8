@@ -15,30 +15,20 @@ using System.Windows.Shapes;
 namespace HearthstoneProject
 {
     /// <summary>
-    /// Lógica de interacción para Nueva_Partida.xaml
+    /// Lógica de interacción para Ganaste.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Ganaste : Window
     {
-        public MainWindow()
+        public Ganaste(Heroe ganador)
         {
             InitializeComponent();
-            Bguardar.Visibility = Visibility.Hidden;
+            Lj.Content = ganador.nombre;
         }
 
-        private void Bnueva_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Nueva_Partida npar = new Nueva_Partida();
-            npar.Show();
-            Close();
-        }
-
-        private void Bcargar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Bsalir_Click(object sender, RoutedEventArgs e)
-        {
+            MainWindow win = new MainWindow();
+            win.Show();
             Close();
         }
     }

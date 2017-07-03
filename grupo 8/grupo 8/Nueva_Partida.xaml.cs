@@ -31,12 +31,9 @@ namespace HearthstoneProject
             InitializeComponent();
             Lporfa.Visibility = Visibility.Hidden;
             Lporfa2.Visibility = Visibility.Hidden;
-            j1 = new Heroe(null, null, null, null, null, null, null, null, null, null,null,null);
-            j2 = new Heroe(null, null, null, null, null, null, null, null, null, j1,null,null);
+            j1 = new Heroe(null,null,null,null,null,null,null,null,null,null);
+            j2 = new Heroe(null,null,null,null,null,null,null,j1,null,null);
             j1.enemigo = j2;
-            Blisto.Visibility = Visibility.Hidden;
-            Bnolisto.Visibility = Visibility.Hidden;
-            Llisto.Visibility = Visibility.Hidden;
         }
 
         //Método útil para desordenar el mazo:
@@ -72,13 +69,11 @@ namespace HearthstoneProject
 
                 List<Carta> tempmazo = new List<Carta>();
                 List<string> temphabilidad = new List<string>();
-                List<string> tempraza = new List<string>();
                 List<int> tempcanthabilidad = new List<int>();
                 List<List<Objeto>> tempobjetivos = new List<List<Objeto>>();
-                List<string> tempcuando = new List<string>();
 
 
-                //Se modifica las caracteristicas del heroe según la opción elegida:
+                //Se modifica las caracteristicas del heroe según la opción elegida (cambiar imagen para cada uno):
                 if (heroe == "cazador")
                 {
                     jug.descripcion = "Inflige 2 de daño al heroe enemigo";
@@ -88,8 +83,6 @@ namespace HearthstoneProject
                     tempobjetivo.Add(jug.enemigo);
                     tempobjetivos.Add(tempobjetivo);
                     tempcanthabilidad.Add(2);
-                    tempcuando.Add(null);
-                    tempraza.Add(null);
                 }
                 else if (heroe == "guerrero")
                 {
@@ -100,8 +93,6 @@ namespace HearthstoneProject
                     tempobjetivo.Add(jug);
                     tempobjetivos.Add(tempobjetivo);
                     tempcanthabilidad.Add(2);
-                    tempcuando.Add(null);
-                    tempraza.Add(null);
                 }
                 else if (heroe == "paladin")
                 {
@@ -109,86 +100,116 @@ namespace HearthstoneProject
                     jug.descripcion = "Invoca un Recluta de la Mano de Plata 1/1";
                     temphabilidad.Add("invoca");
                     List<Objeto> tempobjetivo = new List<Objeto>();
-                    Esbirro tempesbirro1 = new Esbirro("Recluta de la Mano de Plata", 0, jug, null, 1, 1, false, false, false, false, false, null, null, null, null, null, null,null);
-                    tempobjetivo.Add(jug);
+                    Esbirro tempesbirro1 = new Esbirro("Recluta de la Mano de Plata",1,jug,1,1,false,null,null,null,null,null); //Cambiar null final por imagen.
                     tempobjetivo.Add(tempesbirro1);
                     tempobjetivos.Add(tempobjetivo);
                     tempcanthabilidad.Add(1);
-                    tempcuando.Add(null);
-                    tempraza.Add(null);
+                }
+                else if (heroe == "mago")
+                {
+                    jug.descripcion = "Inflige 1 de daño";
+                    jug.heroe = "Mago";
+                    temphabilidad.Add("daña");
+                    tempcanthabilidad.Add(1);
+                }
+                else if (heroe == "sacerdote")
+                {
+                    jug.descripcion = "Restaura 2 de vida";
+                    jug.heroe = "Sacerdote";
+                    temphabilidad.Add("suma vida");
+                    tempcanthabilidad.Add(2);
+                }
+                else if (heroe == "brujo")
+                {
+                    jug.descripcion = "Pierdes 2 de vida, roba una carta";
+                    jug.heroe = "Brujo";
+
+                    temphabilidad.Add("daña");
+                    List<Objeto> tempobjetivo = new List<Objeto>();
+                    tempobjetivo.Add(jug);
+                    tempobjetivos.Add(tempobjetivo);
+                    tempcanthabilidad.Add(2);
+
+                    temphabilidad.Add("roba carta");
+                    tempobjetivo = new List<Objeto>();
+                    tempobjetivo.Add(jug);
+                    tempobjetivos.Add(tempobjetivo);
+                    tempcanthabilidad.Add(1);
                 }
                 else if (heroe == "rogue")
                 {
-                    jug.heroe = "Rogue";
+                    jug.heroe = "Pícaro";
+                }
+                else if (heroe == "druida")
+                {
+                    jug.heroe = "Druida";
                 }
 
                 jug.mazo = tempmazo;
                 jug.objetivo = tempobjetivos;
                 jug.habilidades = temphabilidad;
-                jug.raza = tempraza;
                 jug.canthabilidad = tempcanthabilidad;
-                jug.cuando = tempcuando;
                 jug.nombre = nombre;
-                //Creando el mazo:
+                //Creando el mazo (cambiar imagen para cada uno):
                 Esbirro tempesbirro = null;
                 //3 wisp:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Wisp", 0, jug, null, 1, 1, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Wisp", 0, jug, 1, 1, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 murloc raider:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Murloc raider", 1, jug, "murloc", 1, 2, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Murloc raider", 1, jug, 1, 2, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Bloodfen Raptor:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Bloodfen Raptor", 2, jug, "bestia", 2, 3, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Bloodfen Raptor", 2, jug, 2, 3, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 River Crocolist:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("River Crocolist", 2, jug, "bestia", 3, 2, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("River Crocolist", 2, jug, 3, 2, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Magma Rager:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Magma Rager", 3, jug, "elemental", 1, 5, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Magma Rager", 3, jug,1, 5, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 ChillWind Yeti:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Chillwind Yeti", 4, jug, null, 5, 4, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Chillwind Yeti", 4, jug, 5, 4, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Oasis Snapjaw:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Oasis Snapjaw", 4, jug, "bestia", 7, 2, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Oasis Snapjaw", 4, jug, 7, 2, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Boulderfist Ogre:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Boulderfist Ogre", 6, jug, null, 7, 6, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Boulderfist Ogre", 6, jug, 7, 6, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 War Golem:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("War Golem", 7, jug, null, 7, 7, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("War Golem", 7, jug, 7, 7, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 //3 Core Hound:
                 for (int ii = 0; ii <= 2; ii++)
                 {
-                    tempesbirro = new Esbirro("Core Hound", 7, jug, "bestia", 5, 9, false, false, false, false, false, null, null, null, null, null, null,null);
+                    tempesbirro = new Esbirro("Core Hound", 7, jug, 5, 9, false, null, null, null, null,null);
                     jug.mazo.Add(tempesbirro);
                 }
                 jug.mazo = DesordenarLista(jug.mazo);
@@ -272,12 +293,6 @@ namespace HearthstoneProject
         {
             if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "sacerdote"); }
             else { DefinirHeroe(j2, TBOnombre.Text, "sacerdote"); }
-        }
-
-        private void Bchaman_Click(object sender, RoutedEventArgs e)
-        {
-            if (TBLjugador.Text == "Jugador1") { DefinirHeroe(j1, TBOnombre.Text, "chaman"); }
-            else { DefinirHeroe(j2, TBOnombre.Text, "chaman"); }
         }
 
         private void Bguerrero_Click(object sender, RoutedEventArgs e)

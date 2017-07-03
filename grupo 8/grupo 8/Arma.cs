@@ -13,14 +13,9 @@ namespace HearthstoneProject
         public int duracion;
 
         //Constructor:
-        public Arma(string nombre, int costo, Heroe dueño, int ataque, int duracion, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, string descripcion,string imagen)
+        public Arma(string nombre, int costo, Heroe dueño, int ataque, int duracion, string descripcion,string imagen)
         {
             this.descripcion = descripcion;
-            this.habilidades = habilidades;
-            this.objetivo = objetivo;
-            this.raza = raza;
-            this.canthabilidad = canthabilidad;
-            this.cuando = cuando;
             this.nombre = nombre;
             this.costo = costo;
             this.dueño = dueño;
@@ -32,7 +27,6 @@ namespace HearthstoneProject
         //Método actualizado para Arma:
         public override void ActivarCarta()
         {
-            ActivarHabilidades("grito de batalla");
             base.ActivarCarta();
             dueño.ataque = ataque;
             dueño.duracion = duracion;

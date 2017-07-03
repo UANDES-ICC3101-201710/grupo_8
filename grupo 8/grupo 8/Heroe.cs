@@ -12,12 +12,12 @@ namespace HearthstoneProject
         public string heroe;
         public Heroe enemigo;
         public int vida;
+        public int maxvida;
         public int armadura;
         public int ataque;
         public int duracion;
         public int mana;
         public int maxmana;
-        public bool combo;
         public int puedeatacar;
         public bool puedehabilidad;
         public List<Carta> mazo;
@@ -26,21 +26,19 @@ namespace HearthstoneProject
         public List<Carta> cementerio;
         public string ihabilidad;
 
-        public Heroe(string nombre, string heroe, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<string> raza, List<int> canthabilidad, List<string> cuando, Heroe enemigo,string imagen, string ihabilidad)
+        public Heroe(string nombre, string heroe, string descripcion, List<Carta> mazo, List<string> habilidades, List<List<Objeto>> objetivo, List<int> canthabilidad, Heroe enemigo,string imagen, string ihabilidad)
         {
             this.descripcion = descripcion;
             this.enemigo = enemigo;
             this.habilidades = habilidades;
             this.objetivo = objetivo;
-            this.raza = raza;
-            this.cuando = cuando;
             this.canthabilidad = canthabilidad;
+            maxvida = 30;
             vida = 30;
             armadura = 0;
             ataque = 0;
             mana = 0;
             maxmana = 0;
-            combo = false;
             puedeatacar = 0;
             puedehabilidad = false;
             List<Carta> cem = new List<Carta>();
@@ -62,10 +60,6 @@ namespace HearthstoneProject
             Robar();
             puedeatacar += 1;
             puedehabilidad = true;
-            foreach (Esbirro esbirro in campo)
-            {
-                ActivarHabilidades("inicio turno");
-            }
 
         }
         public void Robar()
@@ -111,17 +105,12 @@ namespace HearthstoneProject
         {
             ActivarHabilidades(null);
             mana -= 2;
-            foreach (Esbirro esbirro in campo)
-            {
-                ActivarHabilidades("inspirar");
-            }
             puedehabilidad = false;
         }
         public void Terminarturno()
         {
             foreach (Esbirro esbirro in campo)
             {
-                ActivarHabilidades("fin turno");
                 esbirro.atacar += 1;
             }
         }

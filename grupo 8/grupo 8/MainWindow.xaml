@@ -10,7 +10,8 @@
         <Button Name="Bnueva" Content="Nueva Partida" HorizontalAlignment="Left" Height="30" Margin="74,98,0,0" VerticalAlignment="Top" Width="131" Click="Bnueva_Click"/>
         <Label Content="Hearthstone" Height="57" Margin="4,4,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="288"/>
         <Button Name="Bcargar" Content="Cargar Partida" HorizontalAlignment="Left" Height="30" Margin="74,133,0,0" VerticalAlignment="Top" Width="131" Click="Bcargar_Click"/>
-        <Button Name="Bsalir" Content="Salir" HorizontalAlignment="Left" Height="30" Margin="74,168,0,0" VerticalAlignment="Top" Width="131" Click="Bsalir_Click"/>
+        <Button Name="Bsalir" Content="Salir" HorizontalAlignment="Left" Height="30" Margin="74,206,0,0" VerticalAlignment="Top" Width="131" Click="Bsalir_Click"/>
+        <Button x:Name="Bguardar" Content="Guardar Partida" HorizontalAlignment="Left" Height="30" Margin="74,168,0,0" VerticalAlignment="Top" Width="131" Click="Bsalir_Click"/>
 
     </Grid>
 </Window>

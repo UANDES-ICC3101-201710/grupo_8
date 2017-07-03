@@ -20,8 +20,7 @@ namespace HearthstoneProject
     /// </summary>
     public partial class Partida : Window
     {
-        Heroe jugador;
-        //Heroe jugador; //El jugador del turno (irá cambiando)
+        Heroe jugador; //El jugador del turno (irá cambiando)
         //Atributos que guardaran los controles dependiendo de su funcion (sirve para ActualizarVentana() ):
         List<Button> imano;
         List<Label> amano;
@@ -38,6 +37,20 @@ namespace HearthstoneProject
         public Partida(Heroe jug1)
         {
             jugador = jug1;
+
+            //Ventajas del 2do jugador:
+            jugador.enemigo.Robar();
+            List<string> temphabilidad1 = new List<string>();
+            List<int> tempcanthabilidad1 = new List<int>();
+            List<List<Objeto>> tempobjetivos1 = new List<List<Objeto>>();
+            List<Objeto> tempobjetivo1 = new List<Objeto>();
+            temphabilidad1.Add("suma mana");
+            tempcanthabilidad1.Add(1);
+            tempobjetivo1.Add(jugador.enemigo);
+            tempobjetivos1.Add(tempobjetivo1);
+            Hechizo moneda = new Hechizo("Moneda", 0, jugador.enemigo, "Ganas 1 de mana por este turno", temphabilidad1, tempobjetivos1, tempcanthabilidad1, "http://media.pypgamers.com/playhs/cartas/es/513.png");
+            jugador.enemigo.mano.Add(moneda);
+
             InitializeComponent();
             //Escondiendo los controles que no aparecen al partir:
             Icm1.Visibility = Visibility.Hidden;
@@ -146,8 +159,13 @@ namespace HearthstoneProject
             Rc6.Visibility = Visibility.Hidden;
             Rc7.Visibility = Visibility.Hidden;
             Rc8.Visibility = Visibility.Hidden;
+            Rc9.Visibility = Visibility.Hidden;
+            Lseleccion.Visibility = Visibility.Hidden;
             habusada.Visibility = Visibility.Hidden;
             nomana.Visibility = Visibility.Hidden;
+            Lyaatacar.Visibility = Visibility.Hidden;
+            Lmalseleccion.Visibility = Visibility.Hidden;
+            Lyaatacar2.Visibility = Visibility.Hidden;
             //Agregando los controles a las listas atributos:
             imano = new List<Button>();
             amano = new List<Label>();
@@ -262,34 +280,35 @@ namespace HearthstoneProject
             rcampo.Add(Rc6);
             rcampo.Add(Rc7);
             rcampo.Add(Rc8);
+            rcampo.Add(Rc9);
             jugador.Iniciarturno();
-            ActualizarVentana(jugador);
+            ActualizarVentana();
             Lturno.Content = "Tú partes,";
         }
 
         //Método para actualizar datos y controles de la ventana segun jugador actual:
-        public void ActualizarVentana(Heroe jactual)
+        public void ActualizarVentana()
         {
             Lturno.Content = "Tu turno,";
-            Lturno2.Content = jactual.nombre;
+            Lturno2.Content = jugador.nombre;
 
             //Datos del heroe:
-            heroej.Content = jactual.nombre;
-            Ldescripcion.Content = jactual.descripcion;
-            h1vida.Content = Convert.ToString(jactual.vida);
-            if (jactual.armadura>0)
+            heroej.Content = jugador.nombre;
+            Ldescripcion.Content = jugador.descripcion;
+            h1vida.Content = Convert.ToString(jugador.vida);
+            if (jugador.armadura>0)
             {
                 h1armadura.Visibility = Visibility.Visible;
-                h1armadura.Content = Convert.ToString(jactual.armadura);
+                h1armadura.Content = Convert.ToString(jugador.armadura);
             }
             else { h1armadura.Visibility = Visibility.Hidden; }
-            if (jactual.ataque>0)
+            if (jugador.ataque>0)
             {
                 a1ataque.Visibility = Visibility.Visible;
                 a1duracion.Visibility = Visibility.Visible;
                 Ia1.Visibility = Visibility.Visible;
-                a1ataque.Content = Convert.ToString(jactual.ataque);
-                a1duracion.Content = Convert.ToString(jactual.duracion);
+                a1ataque.Content = Convert.ToString(jugador.ataque);
+                a1duracion.Content = Convert.ToString(jugador.duracion);
             }
             else
             {
@@ -297,25 +316,25 @@ namespace HearthstoneProject
                 a1duracion.Visibility = Visibility.Hidden;
                 Ia1.Visibility = Visibility.Hidden;
             }
-            mana.Content = Convert.ToString(jactual.mana);
-            maxmana.Content = Convert.ToString(jactual.maxmana);
+            mana.Content = Convert.ToString(jugador.mana);
+            maxmana.Content = Convert.ToString(jugador.maxmana);
 
             //Datos del heroe enemigo:
-            heroee.Content = jactual.enemigo.nombre;
-            h2vida.Content = Convert.ToString(jactual.enemigo.vida);
-            if (jactual.enemigo.armadura > 0)
+            heroee.Content = jugador.enemigo.nombre;
+            h2vida.Content = Convert.ToString(jugador.enemigo.vida);
+            if (jugador.enemigo.armadura > 0)
             {
                 h2armadura.Visibility = Visibility.Visible;
-                h2armadura.Content = Convert.ToString(jactual.enemigo.armadura);
+                h2armadura.Content = Convert.ToString(jugador.enemigo.armadura);
             }
             else { h2armadura.Visibility = Visibility.Hidden; }
-            if (jactual.enemigo.ataque > 0)
+            if (jugador.enemigo.ataque > 0)
             {
                 a2ataque.Visibility = Visibility.Visible;
                 a2duracion.Visibility = Visibility.Visible;
                 Ia2.Visibility = Visibility.Visible;
-                a2ataque.Content = Convert.ToString(jactual.enemigo.ataque);
-                a2duracion.Content = Convert.ToString(jactual.enemigo.duracion);
+                a2ataque.Content = Convert.ToString(jugador.enemigo.ataque);
+                a2duracion.Content = Convert.ToString(jugador.enemigo.duracion);
             }
             else
             {
@@ -326,7 +345,7 @@ namespace HearthstoneProject
 
             int i = 0;
             //Cartas de la mano:
-            foreach (Carta carta in jactual.mano)
+            foreach (Carta carta in jugador.mano)
             {
 
                 //(Transformacion de string de direccion de imagen a source de imagen sacada por internet):
@@ -366,20 +385,23 @@ namespace HearthstoneProject
 
             i = 0;
             //Esbirros en el campo:
-            foreach (Esbirro esbirro in jactual.campo)
+            foreach (Esbirro esbirro in jugador.campo)
             {
                 //BitmapImage image = new BitmapImage(new Uri(esbirro.imagen, UriKind.Relative));
                 //icampo[i].Source = image;
-                icampo[i].Content = esbirro.nombre;
                 icampo[i].Visibility = Visibility.Visible;
                 acampo[i].Visibility = Visibility.Visible;
                 vcampo[i].Visibility = Visibility.Visible;
-
+                icampo[i].Content = esbirro.nombre;
                 acampo[i].Content = Convert.ToString(esbirro.ataque);
                 vcampo[i].Content = Convert.ToString(esbirro.vida);
                 if (esbirro.vida<esbirro.maxvida)
                 {
-                    vcampo[i].Foreground = Brushes.OrangeRed;
+                    vcampo[i].Foreground = Brushes.Orange;
+                }
+                else
+                {
+                    vcampo[i].Foreground = Brushes.White;
                 }
                 i++;
             }
@@ -393,7 +415,7 @@ namespace HearthstoneProject
 
             i = 0;
             //Esbirros en el campo enemigo:
-            foreach (Esbirro esbirro in jactual.enemigo.campo)
+            foreach (Esbirro esbirro in jugador.enemigo.campo)
             {
                 //BitmapImage image = new BitmapImage(new Uri(esbirro.imagen, UriKind.Relative));
                 //icenemigo[i].Source = image;
@@ -406,7 +428,11 @@ namespace HearthstoneProject
                 vcenemigo[i].Content = Convert.ToString(esbirro.vida);
                 if (esbirro.vida < esbirro.maxvida)
                 {
-                    vcenemigo[i].Foreground = Brushes.OrangeRed;
+                    vcenemigo[i].Foreground = Brushes.Orange;
+                }
+                else
+                {
+                    vcampo[i].Foreground = Brushes.White;
                 }
                 i++;
             }
@@ -420,7 +446,7 @@ namespace HearthstoneProject
 
             i = 0;
             //Mostrando la cantidad de cartas del enemigo, sin mostrar cuales son:
-            foreach (Carta carta in jactual.enemigo.mano)
+            foreach (Carta carta in jugador.enemigo.mano)
             {
                 imenemigo[i].Visibility = Visibility.Visible;
             }
@@ -430,56 +456,245 @@ namespace HearthstoneProject
                 i++;
             }
 
+            //escondiendo errores:
             habusada.Visibility = Visibility.Hidden;
             nomana.Visibility = Visibility.Hidden;
+            Lseleccion.Visibility = Visibility.Hidden;
+            Lyaatacar.Visibility = Visibility.Hidden;
+            Lmalseleccion.Visibility = Visibility.Hidden;
+            Lyaatacar2.Visibility = Visibility.Hidden;
+
+            foreach (Rectangle rec in rcampo)
+            {
+                rec.Visibility = Visibility.Hidden;
+            }
+
+            if (jugador.vida<=0)
+            {
+                Ganaste g = new Ganaste(jugador.enemigo);
+                g.Show();
+                Close();
+            }
+            else if (jugador.enemigo.vida<=0)
+            {
+                Ganaste g = new Ganaste(jugador);
+                g.Show();
+                Close();
+            }
         }
 
-        //Método que revisa si se está eligiendo un objetivo al apretar un botón:
-        public int RevisarRectangulos(Button b)
+        //Método que revisa cuál rectangulo se esta mostrando (Que carta o habilidad se va a usar), y si no hay devuelve -1:
+        public int RevisarCualRectangulo()
         {
-            foreach(Rectangle rectangulo in rcampo)
+            foreach (Rectangle rectangulo in rcampo)
             {
-                if (rectangulo.Visibility==Visibility.Visible)
+                if (rectangulo.Visibility == Visibility.Visible)
                 {
-                    if(rectangulo==Rc8 && b==Bhabilidad){ return 2; }
-                    else if (rcampo.IndexOf(rectangulo)==icampo.IndexOf(b)) { return 2}
-                    else { return 1; }
-                    
+                    return rcampo.IndexOf(rectangulo);
                 }
             }
-            return 0;
+            return -1;
         }
 
         //Eventos de botones:
-
-        private void Bhabilidad_Click(object sender, RoutedEventArgs e)
-        {
-            if (!jugador.puedehabilidad)
-            {
-                habusada.Visibility = Visibility.Visible;
-            }
-            if (jugador.mana<2)
-            {
-                nomana.Visibility = Visibility.Visible;
-            }
-            else if (jugador.puedehabilidad)
-            {
-                jugador.UsarHabilidad();
-                ActualizarVentana(jugador);
-            }
-        }
-
         private void Blisto_Click(object sender, RoutedEventArgs e)
         {
             jugador.Terminarturno();
             jugador = jugador.enemigo;
             jugador.Iniciarturno();
-            ActualizarVentana(jugador);
+            ActualizarVentana();
+        }
+        private void Bhabilidad_Click(object sender, RoutedEventArgs e)
+        {
+            //Si ya se estaba eligiendo objetivo de ataque, se muestra error:
+            if (RevisarCualRectangulo()>-1 && RevisarCualRectangulo()!=7) { Lmalseleccion.Visibility = Visibility.Visible; }
+            //Si ya se estaba eligiendo objetivo de habilidad, se cancela:
+            else if (RevisarCualRectangulo() == 7)
+            {
+                Lseleccion.Visibility = Visibility.Hidden;
+                Rc8.Visibility = Visibility.Hidden;
+            }
+            //Si no, se activa:
+            else
+            {
+                if (!jugador.puedehabilidad)
+                {
+                    habusada.Visibility = Visibility.Visible;
+                }
+                if (jugador.mana < 2)
+                {
+                    nomana.Visibility = Visibility.Visible;
+                }
+                else if (jugador.puedehabilidad)
+                {
+                    if (jugador.objetivo.Count==0)
+                    {
+                        Rc8.Visibility = Visibility.Visible;
+                        Lseleccion.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        jugador.UsarHabilidad();
+                        ActualizarVentana();
+                    }
+                }
+            }
         }
 
+        private void Icm_Click(object sender, RoutedEventArgs e)
+        {
+            Carta carta = jugador.mano[imano.IndexOf((Button)sender)];
+
+            //Si no es seleccionado como objetivo, se activa la carta:
+            if (RevisarCualRectangulo()==-1)
+            {
+                //Si el jugador no tiene suficiente mana, error:
+                if (jugador.mana < carta.costo)
+                {
+                    nomana.Visibility = Visibility.Visible;
+                }
+                //Si tiene, activa la carta:
+                else
+                {
+                    carta.ActivarCarta();
+                    ActualizarVentana();
+                }
+            }
+
+            //Si es seleccionado como objetivo, error:
+            else
+            {
+                Lmalseleccion.Visibility = Visibility.Visible;
+            }
+        }
+        private void Icb_Click(object sender, RoutedEventArgs e)
+        {
+            //Guardando datos relacionados con el boton:
+            Rectangle rectangulo = rcampo[icampo.IndexOf((Button)sender)];
+
+            //Revisando si ya se esta eligiendo objetivo:
+            //Si no, se activa para elegir objetivo de ataque:
+            if (RevisarCualRectangulo() == -1)
+            {
+                if (jugador.campo[icampo.IndexOf((Button)sender)].atacar <1)
+                {
+                    Lyaatacar.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    rectangulo.Visibility = Visibility.Visible;
+                    Lseleccion.Visibility = Visibility.Visible;
+                }
+            }
+            //Si ya se estaba eligiendo y era su propio objetivo, se cancela:
+            else if (rectangulo.Visibility == Visibility.Visible)
+            {
+                rectangulo.Visibility = Visibility.Hidden;
+                Lseleccion.Visibility = Visibility.Hidden;
+            }
+            //Si era objetivo del heroe o de esbirro amigo, error:
+            else if (RevisarCualRectangulo()!=7)
+            {
+                Lmalseleccion.Visibility = Visibility.Visible;
+            }
+            //Si es objetivo de habilidad, se efectua:
+            else
+            {
+                List < Objeto > templist= new List<Objeto>();
+                templist.Add(jugador.campo[icampo.IndexOf((Button)sender)]);
+                jugador.objetivo.Add(templist);
+                jugador.UsarHabilidad();
+                jugador.objetivo.Remove(templist);
+                ActualizarVentana();
+            }
+        }
+
+        private void Ice_Click(object sender, RoutedEventArgs e)
+        {
+            //Si es objetivo de habilidad, se efectua sobre él:
+            if (RevisarCualRectangulo()==7)
+            {
+                List<Objeto> templist = new List<Objeto>();
+                templist.Add(jugador.enemigo.campo[icenemigo.IndexOf((Button)sender)]);
+                jugador.objetivo.Add(templist);
+                jugador.UsarHabilidad();
+                jugador.objetivo.Remove(templist);
+            }
+            //Si es objetivo de ataque de heroe, se efectua sobre él:
+            else if (RevisarCualRectangulo()==8)
+            {
+                jugador.Atacar(jugador.enemigo.campo[icenemigo.IndexOf((Button)sender)]);
+            }
+            //Si es objetivo de ataque de esbirro:
+            else if (RevisarCualRectangulo()!=-1)
+            {
+                jugador.campo[RevisarCualRectangulo()].Atacar(jugador.enemigo.campo[icenemigo.IndexOf((Button)sender)]);
+            }
+            ActualizarVentana();
+            ActualizarVentana();
+        }
+
+        private void heroej_Click(object sender, RoutedEventArgs e)
+        {
+            //Si no se esta seleccionando objetivo, se empieza a elegir objetivo para ataque:
+            if (RevisarCualRectangulo() == -1)
+            {
+                if (jugador.ataque > 0)
+                {
+                    if (jugador.puedeatacar > 0)
+                    {
+                        Rc9.Visibility = Visibility.Visible;
+                        Lseleccion.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        Lyaatacar2.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+            //Si se estaba eligiendo objetivo de habilidad, se activa:
+            else if (RevisarCualRectangulo()==7)
+            {
+                List<Objeto> templist = new List<Objeto>();
+                templist.Add(jugador);
+                jugador.objetivo.Add(templist);
+                jugador.UsarHabilidad();
+                jugador.objetivo.Remove(templist);
+                ActualizarVentana();
+            }
+            //Si ya se estaba eligiendo objetivo de ataque de heroe, se cancela:
+            else if (RevisarCualRectangulo()==8)
+            {
+                ActualizarVentana();
+            }
+            //Si se estaba eligiendo objetivo de ataque de esbirro, error:
+            else
+            {
+                Lmalseleccion.Visibility = Visibility.Visible;
+            }
+        }
         private void heroee_Click(object sender, RoutedEventArgs e)
         {
-
+            //Si es objetivo del heroe, es atacado:
+            if (RevisarCualRectangulo()==8)
+            {
+                jugador.Atacar(jugador.enemigo);
+            }
+            //Si es objetivo de habilidad, se activa:
+            else if (RevisarCualRectangulo()==7)
+            {
+                List<Objeto> templist = new List<Objeto>();
+                templist.Add(jugador.enemigo);
+                jugador.objetivo.Add(templist);
+                jugador.UsarHabilidad();
+                jugador.objetivo.Remove(templist);
+            }
+            //Si es objetivo de Esbirro, es atacado:
+            else if (RevisarCualRectangulo() != -1)
+            {
+                jugador.campo[RevisarCualRectangulo()].Atacar(jugador.enemigo);
+            }
+            ActualizarVentana();
         }
     }
 }

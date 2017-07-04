@@ -6,35 +6,32 @@
         xmlns:local="clr-namespace:HearthstoneProject"
         mc:Ignorable="d"
         Title="Hearthstone" Height="300" Width="300">
-  <Grid>
-    <Grid.Background>
-      <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Menu.jpg"/>
-    </Grid.Background>
-    <Button Name="Bnueva" Content="Nueva Partida" HorizontalAlignment="Left" Height="13" Margin="112,92,0,0" VerticalAlignment="Top" Width="67" Click="Bnueva_Click" FontSize="7" FontFamily="Sitka Heading" FontWeight="Bold">
-      <Button.Background>
-        <ImageBrush/>
-      </Button.Background>
-    </Button>
-    <Label Content="" Height="77" Margin="62,33,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="175">
-      <Label.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Titulo.png"/>
-      </Label.Background>
-    </Label>
-    <Button Name="Bcargar" Content="Cargar Partida" HorizontalAlignment="Left" Height="13" Margin="106,116,0,0" VerticalAlignment="Top" Width="79" Click="Bcargar_Click" FontSize="7" FontWeight="Bold" FontFamily="Sitka Heading">
-      <Button.Background>
-        <ImageBrush/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bsalir" Content="Salir" HorizontalAlignment="Left" Height="12" Margin="116,167,0,0" VerticalAlignment="Top" Width="61" Click="Bsalir_Click" FontSize="7" FontWeight="Bold" FontFamily="Sitka Heading">
-      <Button.Background>
-        <ImageBrush/>
-      </Button.Background>
-    </Button>
-    <Button x:Name="Bguardar" Content="Guardar Partida" HorizontalAlignment="Left" Height="12" Margin="104,142,0,0" VerticalAlignment="Top" Width="83" Click="Bsalir_Click" FontSize="7" FontWeight="Bold" FontFamily="Sitka Heading">
-      <Button.Background>
-        <ImageBrush/>
-      </Button.Background>
-    </Button>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Menu.jpg"/>
+        </Grid.Background>
+        <Button Name="Bnueva" Content="Nueva Partida" HorizontalAlignment="Left" Height="13" Margin="112,92,0,0" VerticalAlignment="Top" Width="67" Click="Bnueva_Click" FontSize="7" FontFamily="Sitka Heading" FontWeight="Bold">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Label Content="" Height="77" Margin="62,33,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="175">
+            <Label.Background>
+                <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Titulo.png"/>
+            </Label.Background>
+        </Label>
+        <Button Name="Bcargar" Content="Cargar Partida" HorizontalAlignment="Left" Height="13" Margin="106,116,0,0" VerticalAlignment="Top" Width="79" Click="Bcargar_Click" FontSize="7" FontWeight="Bold" FontFamily="Sitka Heading">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button Name="Bsalir" Content="Salir" HorizontalAlignment="Left" Height="12" Margin="116,167,0,0" VerticalAlignment="Top" Width="61" Click="Bsalir_Click" FontSize="7" FontWeight="Bold" FontFamily="Sitka Heading">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <TextBox Name="TBox" HorizontalAlignment="Left" Height="13" Margin="106,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="79" FontSize="9" FontFamily="Sitka Heading"/>
+        <Label Name="lable" Content="Ingresa el nombre&#xD;&#xA;de tu archivo:" HorizontalAlignment="Left" Height="32" Margin="19,128,0,0" VerticalAlignment="Top" Width="82" FontSize="9" FontFamily="Sitka Heading"/>
 
-  </Grid>
+    </Grid>
 </Window>

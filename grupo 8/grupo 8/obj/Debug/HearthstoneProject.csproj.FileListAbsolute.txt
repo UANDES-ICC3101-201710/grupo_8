@@ -38,3 +38,23 @@ C:\Users\Gustavo\Documents\Visual Studio 2017\Projects\grupo 8\obj\Debug\Partida
 C:\Users\Gustavo\Documents\Visual Studio 2017\Projects\grupo 8\obj\Debug\HearthstoneProject.g.resources
 C:\Users\Gustavo\Documents\Visual Studio 2017\Projects\grupo 8\obj\Debug\HearthstoneProject.Properties.Resources.resources
 C:\Users\Gustavo\Documents\Visual Studio 2017\Projects\grupo 8\obj\Debug\HearthstoneProject.csproj.GenerateResource.Cache
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject.csprojResolveAssemblyReference.cache
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\Ganaste.g.cs
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\Nueva_Partida.g.cs
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\MainWindow.g.cs
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\Partida.g.cs
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\App.g.cs
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject_MarkupCompile.cache
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject_MarkupCompile.lref
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject.exe
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject.pdb
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\bin\Debug\HearthstoneProject.exe.config
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\bin\Debug\HearthstoneProject.exe
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\bin\Debug\HearthstoneProject.pdb
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\Ganaste.baml
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\Nueva_Partida.baml
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\MainWindow.baml
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\Partida.baml
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject.g.resources
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject.Properties.Resources.resources
+C:\Users\Gustavo\Desktop\grupo_8-master\grupo 8\grupo 8\obj\Debug\HearthstoneProject.csproj.GenerateResource.Cache

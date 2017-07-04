@@ -6,37 +6,110 @@
         xmlns:local="clr-namespace:HearthstoneProject"
         mc:Ignorable="d"
         Title="Hearthstone" Height="800" Width="1280">
-    <Grid>
-        <Label Content="Hearthstone" Height="69" Margin="328,33,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="614"/>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Height="26" Margin="553,137,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBox Name="TBOnombre" HorizontalAlignment="Left" Height="22" Margin="613,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
-        <Label Content="Clase:" HorizontalAlignment="Left" Margin="116,201,0,0" VerticalAlignment="Top" Width="48"/>
-        <Button Name="Bcazador" Content="Cazador" HorizontalAlignment="Left" Margin="267,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bcazador_Click"/>
-        <Button Name="Bpaladin" Content="Paladin" HorizontalAlignment="Left" Margin="905,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bpaladin_Click"/>
-        <Button Name="Bguerrero" Content="Guerrero" HorizontalAlignment="Left" Margin="699,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bguerrero_Click"/>
-        <Button Name="Bmago" Content="Mago" HorizontalAlignment="Left" Margin="278,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bmago_Click"/>
-        <Button Name="Bsacerdote" Content="Sacerdote" HorizontalAlignment="Left" Margin="896,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bsacerdote_Click"/>
-        <Button Name="Bdruida" Content="Druida" HorizontalAlignment="Left" Margin="694,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bdruida_Click"/>
-        <Button Name="Bbrujo" Content="Brujo" HorizontalAlignment="Left" Margin="487,500,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bbrujo_Click"/>
-        <Button Name="Brogue" Content="Pícaro" HorizontalAlignment="Left" Margin="479,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Brogue_Click"/>
-        <Label Name="Lporfa" Content="Por favor ingresa tu nombre" HorizontalAlignment="Left" Margin="768,137,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,-0.231" Width="159" Foreground="Red"/>
-        <TextBlock x:Name="TBLjugador" HorizontalAlignment="Left" Height="37" Margin="418,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontSize="22" Text="Jugador1"/>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="239,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"><Run Text="Infliges 2 de daño al héroe"/><LineBreak/><Run Text="enemigo."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="873,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"><Run Text="Invocas un Recluta de"/><LineBreak/><Run Text="la Mano de Plata 1/1."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="667,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center" Text="Obtienes 2 de armadura."/>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="248,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center" Text="Infliges 1 de daño."/>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="869,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center" Text="Restauras 2 de vida."/>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="667,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"><Run Text="Obtienes 1 de armadura "/><LineBreak/><Run Text="y 1 de daño por el turno"/><Run Text="."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="462,631,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"><Run Text="Te auto-infliges 2 de daño"/><LineBreak/><Run Text="y robas una carta."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="445,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"><Run Text="Equipas una Daga 1/2"/><Run Text="."/></TextBlock>
-        <Label x:Name="Lporfa2" Content="Los jugadores no pueden tener el mismo nombre." HorizontalAlignment="Left" Margin="768,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,-0.231" Width="273" Foreground="Red"/>
-        <Button Name="Bvolver" Content="Volver al Menu" HorizontalAlignment="Left" Height="23" Margin="23,717,0,0" VerticalAlignment="Top" Width="141" Click="Bvolver_Click"/>
-        <TextBlock HorizontalAlignment="Left" Height="45" Margin="47,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="J1: Nombre:"/><LineBreak/><Run Text="      "/><Run Text="  "/><Run Text="Heroe:"/></TextBlock>
-        <TextBlock Name="TBLnj1" HorizontalAlignment="Left" Height="20" Margin="113,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
-        <TextBlock Name="TBLhj1" HorizontalAlignment="Left" Height="21" Margin="113,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <TextBlock HorizontalAlignment="Left" Height="45" Margin="993,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="J"/><Run Text="2"/><Run Text=": Nombre:"/><LineBreak/><Run Text="      "/><Run Text="  "/><Run Text="Heroe:"/></TextBlock>
-        <TextBlock x:Name="TBLnj2" HorizontalAlignment="Left" Height="20" Margin="1059,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
-        <TextBlock x:Name="TBLhj2" HorizontalAlignment="Left" Height="21" Margin="1059,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+  <Grid>
+    <Grid.Background>
+      <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\fondo2.jpg"/>
+    </Grid.Background>
+    <Label Content="" Height="194" Margin="367,10,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="579">
+      <Label.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Titulo.png"/>
+      </Label.Background>
+    </Label>
+    <Label Content="Nombre:" HorizontalAlignment="Left" Height="26" Margin="519,168,0,0" VerticalAlignment="Top" Width="69" FontFamily="Sitka Heading" FontSize="16" FontWeight="Bold"/>
+    <TextBox Name="TBOnombre" HorizontalAlignment="Left" Height="22" Margin="604,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+    <Label Content="Clase:" HorizontalAlignment="Left" Margin="116,201,0,0" VerticalAlignment="Top" Width="48"/>
+    <Button Name="Bcazador" Content="Cazador" HorizontalAlignment="Left" Margin="267,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bcazador_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\chasseur grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Bpaladin" Content="Paladin" HorizontalAlignment="Left" Margin="905,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bpaladin_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\paladin grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Bguerrero" Content="Guerrero" HorizontalAlignment="Left" Margin="699,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bguerrero_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\warrior grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Bmago" Content="Mago" HorizontalAlignment="Left" Margin="278,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bmago_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\mage grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Bsacerdote" Content="Sacerdote" HorizontalAlignment="Left" Margin="896,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bsacerdote_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\priest grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Bdruida" Content="Druida" HorizontalAlignment="Left" Margin="694,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bdruida_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\druid grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Bbrujo" Content="Brujo" HorizontalAlignment="Left" Margin="487,500,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bbrujo_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\demoniste grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Button Name="Brogue" Content="Pícaro" HorizontalAlignment="Left" Margin="479,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Brogue_Click">
+      <Button.Background>
+        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\voleur grande.jpg"/>
+      </Button.Background>
+    </Button>
+    <Label Name="Lporfa" Content="Por favor ingresa tu nombre" HorizontalAlignment="Left" Margin="774,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,-0.231" Width="280" Foreground="Red" FontFamily="Sitka Heading" FontSize="18"/>
+    <TextBlock x:Name="TBLjugador" HorizontalAlignment="Left" Height="37" Margin="406,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontSize="24" Text="Jugador1" FontFamily="Sitka Heading" FontWeight="Bold"/>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="239,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center">
+      <Run Text="Infliges 2 de daño al héroe"/>
+      <LineBreak/>
+      <Run Text="enemigo."/>
+    </TextBlock>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="873,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center">
+      <Run Text="Invocas un Recluta de"/>
+      <LineBreak/>
+      <Run Text="la Mano de Plata 1/1."/>
+    </TextBlock>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="667,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center" Text="Obtienes 2 de armadura."/>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="248,622,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center" Text="Infliges 1 de daño."/>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="869,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center" Text="Restauras 2 de vida."/>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="667,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center">
+      <Run Text="Obtienes 1 de armadura "/>
+      <LineBreak/>
+      <Run Text="y 1 de daño por el turno"/>
+      <Run Text="."/>
+    </TextBlock>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="462,631,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center">
+      <Run Text="Te auto-infliges 2 de daño"/>
+      <LineBreak/>
+      <Run Text="y robas una carta."/>
+    </TextBlock>
+    <TextBlock HorizontalAlignment="Left" Height="34" Margin="445,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center">
+      <Run Text="Equipas una Daga 1/2"/>
+      <Run Text="."/>
+    </TextBlock>
+    <Label x:Name="Lporfa2" Content="Los jugadores no pueden tener el mismo nombre." HorizontalAlignment="Left" Margin="773,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,-0.231" Width="401" Foreground="Red" FontFamily="Sitka Heading" FontSize="18"/>
+    <Button Name="Bvolver" Content="Volver al Menu" HorizontalAlignment="Left" Height="23" Margin="23,717,0,0" VerticalAlignment="Top" Width="141" Click="Bvolver_Click"/>
+    <TextBlock HorizontalAlignment="Left" Height="45" Margin="47,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66">
+      <Run Text="J1: Nombre:"/>
+      <LineBreak/>
+      <Run Text="      "/>
+      <Run Text="  "/>
+      <Run Text="Heroe:"/>
+    </TextBlock>
+    <TextBlock Name="TBLnj1" HorizontalAlignment="Left" Height="20" Margin="113,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+    <TextBlock Name="TBLhj1" HorizontalAlignment="Left" Height="21" Margin="113,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+    <TextBlock HorizontalAlignment="Left" Height="45" Margin="993,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66">
+      <Run Text="J"/>
+      <Run Text="2"/>
+      <Run Text=": Nombre:"/>
+      <LineBreak/>
+      <Run Text="      "/>
+      <Run Text="  "/>
+      <Run Text="Heroe:"/>
+    </TextBlock>
+    <TextBlock x:Name="TBLnj2" HorizontalAlignment="Left" Height="20" Margin="1059,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+    <TextBlock x:Name="TBLhj2" HorizontalAlignment="Left" Height="21" Margin="1059,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
 
-    </Grid>
+  </Grid>
 </Window>

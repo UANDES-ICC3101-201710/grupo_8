@@ -7,11 +7,8 @@
         xmlns:local="clr-namespace:HearthstoneProject"
         mc:Ignorable="d"
         Title="Partida" Height="800" Width="1280">
-  <Grid Margin="-2,0,2,0">
-    <Grid.Background>
-      <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\tablero.jpg"/>
-    </Grid.Background>
-    <Grid.ColumnDefinitions>
+    <Grid Margin="-2,0,2,0">
+        <Grid.ColumnDefinitions>
       <ColumnDefinition Width="955*"/>
       <ColumnDefinition Width="317*"/>
     </Grid.ColumnDefinitions>
@@ -117,7 +114,7 @@
     <Image x:Name="Icme10" Source="https://1dd4.files.wordpress.com/2014/05/dorso-bc3a1sico.png" HorizontalAlignment="Left" Height="190" Margin="845,-143,0,0" VerticalAlignment="Top" Width="134" Grid.ColumnSpan="2"/>
     <Label x:Name="h1vida" Content="Vida" HorizontalAlignment="Left" Height="26" Margin="668,554,0,0" VerticalAlignment="Top" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFD2C2C" RenderTransformOrigin="1.094,0.517" Foreground="White"/>
     <Label x:Name="a1ataque" Content="Ataque" HorizontalAlignment="Left" Margin="560,522,0,217" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFDFD2C" RenderTransformOrigin="1.286,0.596"/>
-    <Label x:Name="a1duracion" Content="duracion" HorizontalAlignment="Left" Height="26" Margin="464,524,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FFAFB0B2"/>
+    <Label x:Name="a1duracion" Content="duracion" HorizontalAlignment="Left" Height="26" Margin="562,551,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FFAFB0B2"/>
     <Label x:Name="h1armadura" Content="Armadura" HorizontalAlignment="Left" Height="26" Margin="668,520,0,0" VerticalAlignment="Top" Width="26" FontSize="14" FontWeight="Bold" Background="#FF8A8B8D"/>
     <Label x:Name="h2vida" Content="Vida" HorizontalAlignment="Left" Height="26" Margin="668,121,0,0" VerticalAlignment="Top" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFD2C2C" RenderTransformOrigin="1.094,0.517" Foreground="White"/>
     <Label x:Name="a2ataque" Content="Ataque" HorizontalAlignment="Left" Margin="464,128,0,611" Width="28" FontSize="14" FontWeight="Bold" Background="#FFFDFD2C" RenderTransformOrigin="1.286,0.596"/>

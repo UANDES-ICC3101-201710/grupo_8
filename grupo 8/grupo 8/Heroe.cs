@@ -97,8 +97,14 @@ namespace HearthstoneProject
             else if (objetivo is Esbirro esbirro)
             {
                 esbirro.RecibirDaño(ataque);
+                RecibirDaño(esbirro.ataque);
             }
             puedeatacar = 0;
+            duracion -= 1;
+            if (duracion==0)
+            {
+                ataque = 0;
+            }
         }
 
         //Activa la habilidad de heroe descrita:
@@ -113,6 +119,10 @@ namespace HearthstoneProject
             foreach (Esbirro esbirro in campo)
             {
                 esbirro.atacar += 1;
+            }
+            if (heroe == "Druida")
+            {
+                ataque = 0;
             }
         }
     }

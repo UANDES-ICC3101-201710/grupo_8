@@ -6,58 +6,26 @@
         xmlns:local="clr-namespace:HearthstoneProject"
         mc:Ignorable="d"
         Title="Hearthstone" Height="800" Width="1280">
-  <Grid>
-    <Grid.Background>
-      <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\fondo2.jpg"/>
-    </Grid.Background>
-    <Label Content="" Height="194" Margin="367,10,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="579">
-      <Label.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Titulo.png"/>
-      </Label.Background>
-    </Label>
-    <Label Content="Nombre:" HorizontalAlignment="Left" Height="26" Margin="519,168,0,0" VerticalAlignment="Top" Width="69" FontFamily="Sitka Heading" FontSize="16" FontWeight="Bold"/>
+    <Grid>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Height="26" Margin="519,168,0,0" VerticalAlignment="Top" Width="69" FontFamily="Sitka Heading" FontSize="16" FontWeight="Bold"/>
     <TextBox Name="TBOnombre" HorizontalAlignment="Left" Height="22" Margin="604,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
     <Label Content="Clase:" HorizontalAlignment="Left" Margin="116,201,0,0" VerticalAlignment="Top" Width="48"/>
-    <Button Name="Bcazador" Content="Cazador" HorizontalAlignment="Left" Margin="267,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bcazador_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\chasseur grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bpaladin" Content="Paladin" HorizontalAlignment="Left" Margin="905,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bpaladin_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\paladin grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bguerrero" Content="Guerrero" HorizontalAlignment="Left" Margin="699,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bguerrero_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\warrior grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bmago" Content="Mago" HorizontalAlignment="Left" Margin="278,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bmago_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\mage grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bsacerdote" Content="Sacerdote" HorizontalAlignment="Left" Margin="896,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bsacerdote_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\priest grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bdruida" Content="Druida" HorizontalAlignment="Left" Margin="694,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bdruida_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\druid grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Bbrujo" Content="Brujo" HorizontalAlignment="Left" Margin="487,500,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bbrujo_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\demoniste grande.jpg"/>
-      </Button.Background>
-    </Button>
-    <Button Name="Brogue" Content="Pícaro" HorizontalAlignment="Left" Margin="479,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Brogue_Click">
-      <Button.Background>
-        <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\heroes\voleur grande.jpg"/>
-      </Button.Background>
-    </Button>
+        <Button Name="Bcazador" Content="Cazador" HorizontalAlignment="Left" Margin="267,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bcazador_Click">
+        </Button>
+        <Button Name="Bpaladin" Content="Paladin" HorizontalAlignment="Left" Margin="905,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bpaladin_Click">
+        </Button>
+        <Button Name="Bguerrero" Content="Guerrero" HorizontalAlignment="Left" Margin="699,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bguerrero_Click">
+        </Button>
+        <Button Name="Bmago" Content="Mago" HorizontalAlignment="Left" Margin="278,496,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bmago_Click">
+        </Button>
+        <Button Name="Bsacerdote" Content="Sacerdote" HorizontalAlignment="Left" Margin="896,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bsacerdote_Click">
+        </Button>
+        <Button Name="Bdruida" Content="Druida" HorizontalAlignment="Left" Margin="694,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bdruida_Click">
+        </Button>
+        <Button Name="Bbrujo" Content="Brujo" HorizontalAlignment="Left" Margin="487,500,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Bbrujo_Click">
+        </Button>
+        <Button Name="Brogue" Content="Pícaro" HorizontalAlignment="Left" Margin="479,263,0,0" VerticalAlignment="Top" Width="110" Height="121" Click="Brogue_Click">
+        </Button>
     <Label Name="Lporfa" Content="Por favor ingresa tu nombre" HorizontalAlignment="Left" Margin="774,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,-0.231" Width="280" Foreground="Red" FontFamily="Sitka Heading" FontSize="18"/>
     <TextBlock x:Name="TBLjugador" HorizontalAlignment="Left" Height="37" Margin="406,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontSize="24" Text="Jugador1" FontFamily="Sitka Heading" FontWeight="Bold"/>
     <TextBlock HorizontalAlignment="Left" Height="34" Margin="239,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center">

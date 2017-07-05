@@ -20,21 +20,32 @@ namespace HearthstoneProject
         //Este método activa un efecto de habilidad:
         public virtual void Habilidad(string habilidad, int x, List<Objeto> objetivos)
         {
-            if (habilidad != null)
+            if (habilidad=="druida")
+            {
+                (objetivos[0] as Heroe).ataque += 1;
+                (objetivos[0] as Heroe).armadura += 1;
+            }
+            else if (habilidad=="equipa")
+            {
+                (objetivos[0] as Heroe).ataque = 1;
+                (objetivos[0] as Heroe).duracion = 2;
+            }
+            else if (habilidad == "invoca")
+            {
+                for (int i = 0; i < x; i++)
+                {
+                    Esbirro invocado = (Esbirro)objetivos[1];
+                    (objetivos[0] as Heroe).campo.Add(new Esbirro(invocado.nombre, invocado.costo, invocado.dueño, invocado.vida, invocado.ataque, invocado.provocacion, invocado.habilidades, invocado.objetivo, invocado.canthabilidad, invocado.descripcion, invocado.imagen));
+                }
+            }
+            else if (habilidad != null)
             {
                 foreach (Objeto objetivo in objetivos)
                 {
                     if (objetivo is Heroe heroe)
                     {
-                        if (habilidad == "invoca")
-                        {
-                            for (int i = 0; i < x; i++)
-                            {
-                                Esbirro invocado = (Esbirro)objetivos[1];
-                                (objetivos[0] as Heroe).campo.Add(new Esbirro(invocado.nombre, invocado.costo, invocado.dueño, invocado.vida, invocado.ataque, invocado.provocacion, invocado.habilidades, invocado.objetivo, invocado.canthabilidad, invocado.descripcion, invocado.imagen));
-                            }
-                        }
-                        else if (habilidad == "daña")
+                        
+                        if (habilidad == "daña")
                         {
                             heroe.RecibirDaño(x);
                         }

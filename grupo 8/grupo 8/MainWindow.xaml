@@ -7,19 +7,11 @@
         mc:Ignorable="d"
         Title="Hearthstone" Height="300" Width="300">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Menu.jpg"/>
-        </Grid.Background>
         <Button Name="Bnueva" Content="Nueva Partida" HorizontalAlignment="Left" Height="13" Margin="112,92,0,0" VerticalAlignment="Top" Width="67" Click="Bnueva_Click" FontSize="7" FontFamily="Sitka Heading" FontWeight="Bold">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>
         </Button>
-        <Label Content="" Height="77" Margin="62,33,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="175">
-            <Label.Background>
-                <ImageBrush ImageSource="C:\Users\Pedro\Desktop\Hearthstone- Grupo 8\extras\Titulo.png"/>
-            </Label.Background>
-        </Label>
         <Button Name="Bcargar" Content="Cargar Partida" HorizontalAlignment="Left" Height="13" Margin="106,116,0,0" VerticalAlignment="Top" Width="79" Click="Bcargar_Click" FontSize="7" FontWeight="Bold" FontFamily="Sitka Heading">
             <Button.Background>
                 <ImageBrush/>

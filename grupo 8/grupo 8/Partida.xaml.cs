@@ -294,7 +294,10 @@ namespace HearthstoneProject
             if (jugador.ataque > 0)
             {
                 a1ataque.Visibility = Visibility.Visible;
-                a1duracion.Visibility = Visibility.Visible;
+                if (jugador.heroe!="Druida")
+                {
+                    a1duracion.Visibility = Visibility.Visible;
+                }
                 Ia1.Visibility = Visibility.Visible;
                 a1ataque.Content = Convert.ToString(jugador.ataque);
                 a1duracion.Content = Convert.ToString(jugador.duracion);

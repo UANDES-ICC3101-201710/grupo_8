@@ -102,6 +102,7 @@ namespace HearthstoneProject
                     temphabilidad.Add("invoca");
                     List<Objeto> tempobjetivo = new List<Objeto>();
                     Esbirro tempesbirro1 = new Esbirro("Recluta de la Mano de Plata",1,jug,1,1,false,null,null,null,null,null); //Cambiar null final por imagen.
+                    tempobjetivo.Add(jug);
                     tempobjetivo.Add(tempesbirro1);
                     tempobjetivos.Add(tempobjetivo);
                     tempcanthabilidad.Add(1);
@@ -140,10 +141,22 @@ namespace HearthstoneProject
                 else if (heroe == "rogue")
                 {
                     jug.heroe = "Pícaro";
+                    jug.descripcion = "Equipas una Daga 1/2";
+                    temphabilidad.Add("equipa");
+                    List<Objeto> tempobjetivo = new List<Objeto>();
+                    tempobjetivo.Add(jug);
+                    tempobjetivos.Add(tempobjetivo);
+                    tempcanthabilidad.Add(2);
                 }
                 else if (heroe == "druida")
                 {
                     jug.heroe = "Druida";
+                    jug.descripcion = "Obtienes 1 de ataque y armadura";
+                    temphabilidad.Add("druida");
+                    List<Objeto> tempobjetivo = new List<Objeto>();
+                    tempobjetivo.Add(jug);
+                    tempobjetivos.Add(tempobjetivo);
+                    tempcanthabilidad.Add(2);
                 }
 
                 jug.mazo = tempmazo;
